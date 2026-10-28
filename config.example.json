@@ -1,0 +1,19 @@
+{
+  "spreadsheet_id": "",
+  "gemini_api_key": "",
+  "default_signature": "Chú Dũng Sức Khỏe",
+  "gemini_model": "auto",
+  "data_dir": "data",
+  "poll_seconds": 30,
+  "width": 720,
+  "height": 1280,
+  "max_video_mb": 150,
+  "max_video_seconds": 600,
+  "max_analysis_per_day": 30,
+  "auto_analyze": true,
+  "font_size_mode": "auto",
+  "color_theme": "gold",
+  "default_music": "auto",
+  "music_volume": 0.18,
+  "render_preset": "veryfast"
+}

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FB Auto Video Studio Pro v3 - Desktop Command Center</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Be Vietnam Pro & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;family=JetBrains+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#93000a",
+            "background": "#0f131d",
+            "outline": "#8c909f",
+            "on-tertiary-fixed": "#23005c",
+            "on-secondary-fixed": "#002113",
+            "tertiary-container": "#a078ff",
+            "secondary-fixed-dim": "#4edea3",
+            "primary": "#adc6ff",
+            "inverse-surface": "#dfe2f1",
+            "on-tertiary": "#3c0091",
+            "on-primary": "#002e6a",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-fixed": "#001a42",
+            "primary-container": "#4d8eff",
+            "surface-tint": "#adc6ff",
+            "surface-dim": "#0f131d",
+            "secondary-container": "#00a572",
+            "on-surface-variant": "#c2c6d6",
+            "on-surface": "#dfe2f1",
+            "secondary-fixed": "#6ffbbe",
+            "on-primary-fixed-variant": "#004395",
+            "surface-bright": "#353944",
+            "on-secondary": "#003824",
+            "on-secondary-fixed-variant": "#005236",
+            "surface-container-highest": "#313540",
+            "surface": "#0f131d",
+            "on-tertiary-fixed-variant": "#5516be",
+            "inverse-primary": "#005ac2",
+            "error": "#ffb4ab",
+            "on-background": "#dfe2f1",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary-container": "#340080",
+            "on-error-container": "#ffdad6",
+            "surface-variant": "#313540",
+            "surface-container-high": "#262a35",
+            "on-error": "#690005",
+            "on-secondary-container": "#00311f",
+            "on-primary-container": "#00285d",
+            "surface-container": "#1c1f2a",
+            "surface-container-low": "#171b26",
+            "secondary": "#4edea3",
+            "tertiary": "#d0bcff",
+            "surface-container-lowest": "#0a0e18",
+            "tertiary-fixed": "#e9ddff",
+            "inverse-on-surface": "#2c303b",
+            "tertiary-fixed-dim": "#d0bcff",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter-compact": "0.5rem",
+            "margin-dock": "0.75rem",
+            "margin": "1.5rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "space-xl": "2rem",
+            "space-lg": "1.25rem"
+          },
+          "fontFamily": {
+            "display-md": ["Be Vietnam Pro"],
+            "body-md": ["Be Vietnam Pro"],
+            "code-stream": ["JetBrains Mono"],
+            "headline-sm": ["Be Vietnam Pro"],
+            "body-sm": ["Be Vietnam Pro"],
+            "label-sm": ["JetBrains Mono"],
+            "label-md": ["JetBrains Mono"],
+            "title-md": ["Be Vietnam Pro"],
+            "display-lg": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "display-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "code-stream": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "title-md": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 1.15rem;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    /* Subtle Cybernetic Accents */
+    .glow-cyan-sm {
+      box-shadow: 0 0 16px -2px rgba(173, 198, 255, 0.15);
+    }
+    .glow-emerald-pulse {
+      box-shadow: 0 0 14px 1px rgba(78, 222, 163, 0.35);
+    }
+    
+    /* Custom Scrollbar for Terminals & Carousels */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0e18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #313540;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen overflow-x-hidden">
+<!-- ========================================================================= -->
+<!-- COMPONENT: SideNavBar (Shared Component from JSON)                         -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 border-r border-outline-variant bg-surface-container-low flex flex-col justify-between p-space-md z-40 overflow-y-auto">
+<!-- Top Section: Brand + Automation Card + Nav Links -->
+<div class="space-y-space-md">
+<!-- Brand Header -->
+<div class="flex items-center gap-2.5 px-2 py-1.5 border-b border-outline-variant/60 pb-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest border border-primary/40 flex items-center justify-center text-primary shadow-sm shadow-primary/20">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight text-on-surface">AUTOSTUDIO PRO</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+<span class="text-label-sm font-label-sm text-secondary">v3.4 CORE ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Master 1-Click Action Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/80 rounded-xl p-3 relative overflow-hidden shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary glow-emerald-pulse"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">PIPELINE AUTORUN</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-bold">78% READY</span>
+</div>
+<!-- Master Button CTA -->
+<button class="w-full py-2.5 px-3 rounded-lg bg-primary text-on-primary font-headline-sm text-label-md font-semibold tracking-wide flex items-center justify-center gap-2 shadow-md hover:bg-primary-fixed transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+          RUN AUTOMATION
+        </button>
+<!-- Progress Track -->
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-[78%] transition-all duration-500"></div>
+</div>
+<div class="flex items-center justify-between mt-2 text-label-sm font-label-sm text-on-surface-variant">
+<span>Batch Queue: #0842</span>
+<button class="hover:text-primary transition-colors flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">pause</span>
+<span>Pause</span>
+</button>
+</div>
+</div>
+<!-- Navigation Menu Tabs -->
+<nav class="space-y-1">
+<div class="px-2 pb-1 text-label-sm font-label-sm text-outline uppercase tracking-wider font-semibold">
+          Console Routing
+        </div>
+<!-- Item 1: Dashboard (ACTIVE: intent match) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-highest text-primary font-medium border-l-2 border-primary active:scale-[0.98] transition-transform duration-100 ease-out" href="#dashboard">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">space_dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Item 2: Channel Monitor -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-[0.98] transition-all duration-150" href="#channels">
+<span class="material-symbols-outlined">subscriptions</span>
+<span class="text-label-md font-label-md">Channel Monitor</span>
+</a>
+<!-- Item 3: AI Scripting -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-[0.98] transition-all duration-150" href="#scripting">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="text-label-md font-label-md">AI Scripting</span>
+</a>
+<!-- Item 4: Render Queue -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-[0.98] transition-all duration-150" href="#queue">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="text-label-md font-label-md">Render Queue</span>
+<span class="ml-auto bg-surface-container-high text-primary px-1.5 py-0.5 rounded text-[10px] font-label-sm">3</span>
+</a>
+<!-- Item 5: Settings -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-[0.98] transition-all duration-150" href="#settings">
+<span class="material-symbols-outlined">tune</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</nav>
+<!-- Automation Sub-Tool Switches -->
+<div class="border-t border-outline-variant/60 pt-3 space-y-2">
+<div class="px-2 text-label-sm font-label-sm text-outline uppercase tracking-wider font-semibold">
+          Active Modules
+        </div>
+<div class="space-y-1.5 px-2">
+<!-- Switch 1 -->
+<label class="flex items-center justify-between cursor-pointer py-1 group">
+<span class="text-body-sm font-body-sm text-on-surface-variant group-hover:text-on-surface">Whisper Audio Transcription</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-secondary-container"></div>
+</div>
+</label>
+<!-- Switch 2 -->
+<label class="flex items-center justify-between cursor-pointer py-1 group">
+<span class="text-body-sm font-body-sm text-on-surface-variant group-hover:text-on-surface">GPT-4o Hook Optimizer</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-secondary-container"></div>
+</div>
+</label>
+<!-- Switch 3 -->
+<label class="flex items-center justify-between cursor-pointer py-1 group">
+<span class="text-body-sm font-body-sm text-on-surface-variant group-hover:text-on-surface">Smart 9:16 Face Reframe</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-secondary-container"></div>
+</div>
+</label>
+<!-- Switch 4 -->
+<label class="flex items-center justify-between cursor-pointer py-1 group">
+<span class="text-body-sm font-body-sm text-on-surface-variant group-hover:text-on-surface">Auto-Post to FB Reels</span>
+<div class="relative inline-flex items-center">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-secondary-container"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Telemetry Footer -->
+<div class="border-t border-outline-variant/60 pt-3 space-y-2 mt-4">
+<div class="bg-surface-container-lowest p-2.5 rounded-lg border border-outline-variant/60">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="text-outline font-code-stream">GPU ACCEL:</span>
+<span class="text-primary font-semibold font-code-stream">RTX 4090</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded overflow-hidden">
+<div class="bg-primary h-full rounded w-[94%]"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] font-label-sm text-on-surface-variant mt-1.5">
+<span>94% VRAM Load</span>
+<span class="text-secondary font-medium">62°C STABLE</span>
+</div>
+</div>
+<!-- Footer Tabs from JSON -->
+<div class="flex items-center justify-between pt-1">
+<a class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#diagnostics">
+<span class="material-symbols-outlined text-[15px]">terminal</span>
+<span>System Diagnostics</span>
+</a>
+<a class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#docs">
+<span class="material-symbols-outlined text-[15px]">help_outline</span>
+<span>Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- COMPONENT: TopNavBar (Shared Component from JSON)                          -->
+<!-- ========================================================================= -->
+<header class="fixed top-0 right-0 left-64 h-14 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-6 z-30 shadow-sm dark:shadow-none">
+<!-- Left Section: Search & Active Cluster Status -->
+<div class="flex items-center gap-5 w-1/3">
+<!-- Breadcrumb indicator -->
+<div class="hidden lg:flex items-center gap-2 text-label-sm font-label-sm text-outline border-r border-outline-variant pr-4">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-on-surface font-semibold tracking-wide">CLUSTER_01</span>
+<span class="text-secondary font-code-stream">120 FPS</span>
+</div>
+<!-- Search Input -->
+<div class="relative w-full max-w-xs">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/80 rounded-lg pl-8 pr-3 py-1.5 text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search batch jobs, channels, reels..." type="text"/>
+</div>
+</div>
+<!-- Center Navigation Links (from JSON) -->
+<div class="hidden xl:flex items-center gap-6">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 text-label-md font-label-md transition-colors" href="#cluster">
+        Render Cluster A
+      </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary pb-1 text-label-md font-label-md transition-colors" href="#pipeline">
+        Batch Pipeline
+      </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary pb-1 text-label-md font-label-md transition-colors" href="#logs">
+        Logs
+      </a>
+</div>
+<!-- Right Quick Actions & Profile -->
+<div class="flex items-center gap-3">
+<!-- Action 1: Sync Sheets -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high text-on-surface text-label-sm font-label-sm transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-secondary text-[16px]">sync</span>
+<span>Sync Sheets</span>
+<span class="text-[9px] bg-surface-container-highest px-1.5 py-0.2 rounded text-outline">2m</span>
+</button>
+<!-- Action 2: Scan Channels -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high text-on-surface text-label-sm font-label-sm transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-primary text-[16px]">radar</span>
+<span>Scan Channels</span>
+</button>
+<!-- Primary Action: Render Videos -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-label-sm font-label-sm shadow-sm hover:bg-primary-fixed transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">movie_creation</span>
+<span>Render Videos</span>
+</button>
+<!-- Trailing Action Icons (from JSON) -->
+<div class="flex items-center gap-1 pl-2 border-l border-outline-variant">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Folder View">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors relative" title="Notifications">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+<!-- Operator Badge Profile -->
+<div class="flex items-center gap-2 pl-3 border-l border-outline-variant">
+<div class="relative">
+<img alt="Operator Admin Profile" class="w-7 h-7 rounded-full object-cover border border-primary/50" data-alt="A cinematic medium portrait shot of a focused modern video production operator wearing cybernetic audio headset in a dim slate blue editing suite. The background shows glowing high tech LED status monitors and soft blue computational light reflections. Clean modern editorial photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWNTVV-E0RlGO-DBY6qm93lws_VnOUrcsW0Qa4EbcX7IFSDGool6LgHcr5VDOPv7HY2sRWk10svLIH0S7KGqI3-bqpWWKzkohOs_wgFOfHcPSxaAnKntnPlRnrs6o4yNmIu_P1hCmLcuvywUzby3NEphRKP47N70-XZDmED-Dgz_VEolsymQYun-vZAiVnu8nyxTxYBzXgv4e1B05S2hON7MJLMnLYUv0zwfNinqV_xVUvI71gbd4sr1cQ_UjWEgxfRTnXtUe5Ft6u"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-secondary border border-surface-container-lowest"></span>
+</div>
+<div class="hidden 2xl:flex flex-col">
+<span class="text-body-sm font-body-sm font-medium text-on-surface">Lead Automator</span>
+<span class="text-label-sm font-label-sm text-outline text-[10px]">VERIFIED ROOT</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE CANVAS                                                     -->
+<!-- ========================================================================= -->
+<main class="ml-64 mt-14 p-space-md lg:p-space-lg space-y-space-lg min-h-[calc(100vh-3.5rem)]">
+<!-- Top Telemetry & Batch Status Ribbon -->
+<div class="flex flex-wrap items-center justify-between gap-4 bg-surface-container-low border border-outline-variant/60 rounded-xl px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></div>
+<div>
+<h1 class="text-title-md font-title-md text-on-surface tracking-tight">Active Automation Production Line: #CLUSTER_EAST_REELS</h1>
+<p class="text-body-sm font-body-sm text-outline">Meta Graph API v21.0 Handshake Verified • 48 High-Impact Target Channels Monitored</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg border border-outline-variant/50">
+<span class="text-outline">SYNCHRONIZED:</span>
+<span class="text-on-surface font-code-stream">12 Facebook Pages</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg border border-outline-variant/50">
+<span class="text-outline">TIKTOK PIPELINE:</span>
+<span class="text-secondary font-code-stream">36 Handles Active</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg border border-outline-variant/50">
+<span class="text-outline">QUEUE LATENCY:</span>
+<span class="text-primary font-code-stream">1.2ms (Zero Drift)</span>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- SECTION 1: Glowing KPI Metric Stat Cards (Grid of 4)                       -->
+<!-- ========================================================================= -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI Card 1: Monitored Channels -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl p-space-md hover:border-primary/50 transition-all duration-200 relative overflow-hidden group shadow-sm">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium uppercase tracking-wider">Monitored Channels</span>
+<span class="material-symbols-outlined text-primary text-[20px]">hub</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-display-md font-display-md text-on-surface font-bold">48 Channels</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">+6 this week</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1.5">12 FB Pages • 36 TikTok Accounts</p>
+<!-- Micro sparkline visualization -->
+<div class="mt-3 flex items-end gap-1 h-6 pt-2 border-t border-outline-variant/40">
+<div class="w-full bg-primary/20 h-2 rounded-t"></div>
+<div class="w-full bg-primary/30 h-3 rounded-t"></div>
+<div class="w-full bg-primary/40 h-2.5 rounded-t"></div>
+<div class="w-full bg-primary/50 h-4 rounded-t"></div>
+<div class="w-full bg-primary/70 h-3.5 rounded-t"></div>
+<div class="w-full bg-primary h-6 rounded-t shadow-sm shadow-primary/40"></div>
+</div>
+</div>
+<!-- KPI Card 2: Raw Videos Ingested -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl p-space-md hover:border-primary/50 transition-all duration-200 relative overflow-hidden group shadow-sm">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-primary-container/10 rounded-full blur-xl group-hover:bg-primary-container/20 transition-all"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium uppercase tracking-wider">Raw Videos Ingested</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">cloud_download</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-display-md font-display-md text-on-surface font-bold">1,284 Clips</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">+184 today</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1.5">High-res 4K/1080p source queue</p>
+<!-- Micro sparkline visualization -->
+<div class="mt-3 flex items-end gap-1 h-6 pt-2 border-t border-outline-variant/40">
+<div class="w-full bg-primary-container/20 h-3 rounded-t"></div>
+<div class="w-full bg-primary-container/30 h-2 rounded-t"></div>
+<div class="w-full bg-primary-container/50 h-4 rounded-t"></div>
+<div class="w-full bg-primary-container/60 h-3 rounded-t"></div>
+<div class="w-full bg-primary-container/80 h-5 rounded-t"></div>
+<div class="w-full bg-primary-container h-6 rounded-t"></div>
+</div>
+</div>
+<!-- KPI Card 3: AI Scripts Synthesized -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl p-space-md hover:border-tertiary/50 transition-all duration-200 relative overflow-hidden group shadow-sm">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-tertiary/10 rounded-full blur-xl group-hover:bg-tertiary/20 transition-all"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium uppercase tracking-wider">AI Scripts Synthesized</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">psychology</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-display-md font-display-md text-on-surface font-bold">842 Hooks</span>
+<span class="text-label-sm font-label-sm text-tertiary font-semibold">94.2% virality</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1.5">Multi-voice TTS ready (ElevenLabs)</p>
+<!-- Micro sparkline visualization -->
+<div class="mt-3 flex items-end gap-1 h-6 pt-2 border-t border-outline-variant/40">
+<div class="w-full bg-tertiary/20 h-2.5 rounded-t"></div>
+<div class="w-full bg-tertiary/40 h-3.5 rounded-t"></div>
+<div class="w-full bg-tertiary/30 h-3 rounded-t"></div>
+<div class="w-full bg-tertiary/60 h-4 rounded-t"></div>
+<div class="w-full bg-tertiary/80 h-5 rounded-t"></div>
+<div class="w-full bg-tertiary h-6 rounded-t"></div>
+</div>
+</div>
+<!-- KPI Card 4: 9:16 Rendered Videos -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl p-space-md hover:border-secondary/50 transition-all duration-200 relative overflow-hidden group shadow-sm">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-secondary/10 rounded-full blur-xl group-hover:bg-secondary/20 transition-all"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium uppercase tracking-wider">9:16 Rendered Videos</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">movie_filter</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-display-md font-display-md text-on-surface font-bold">439 Ready</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">18 Rendering</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1.5">Auto-captioned &amp; Watermarked</p>
+<!-- Micro sparkline visualization -->
+<div class="mt-3 flex items-end gap-1 h-6 pt-2 border-t border-outline-variant/40">
+<div class="w-full bg-secondary/20 h-3.5 rounded-t"></div>
+<div class="w-full bg-secondary/40 h-3 rounded-t"></div>
+<div class="w-full bg-secondary/50 h-4.5 rounded-t"></div>
+<div class="w-full bg-secondary/70 h-4 rounded-t"></div>
+<div class="w-full bg-secondary/90 h-5.5 rounded-t"></div>
+<div class="w-full bg-secondary h-6 rounded-t shadow-sm shadow-secondary/40"></div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 2: 9:16 Vertical Video Asset Carousel & Queue Grid                 -->
+<!-- ========================================================================= -->
+<section class="space-y-space-md">
+<!-- Section Header with Filters and Controls -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/60 pb-3">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-surface-container border border-outline-variant/80 text-primary">
+<span class="material-symbols-outlined">video_library</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight">Generated 9:16 Vertical Assets (Reels &amp; TikTok)</h2>
+<p class="text-body-sm font-body-sm text-outline">Real-time dynamic smart-cropped outputs with kinetic Whisper subtitles &amp; viral hook tags</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<!-- Filter Tabs -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg border border-outline-variant/70 text-label-sm font-label-sm">
+<button class="px-3 py-1 rounded bg-surface-container-highest text-primary font-medium">All Completed</button>
+<button class="px-3 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors">Rendering (3)</button>
+<button class="px-3 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors">Scheduled</button>
+<button class="px-3 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors">Failed (0)</button>
+</div>
+<!-- Carousel Arrow Buttons -->
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Previous Assets">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Next Assets">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 9:16 Vertical Cards Grid / Horizontal Scroll Shelf -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-gutter">
+<!-- Card 1: 5 AI Hacks -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl overflow-hidden hover:border-primary transition-all duration-200 flex flex-col group shadow-md hover:shadow-primary/10">
+<!-- 9:16 Preview Box -->
+<div class="relative aspect-[9/16] w-full bg-surface-container-lowest overflow-hidden">
+<img alt="5 AI Hacks Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A vivid high-contrast vertical 9 to 16 frame showing an expressive young tech entrepreneur in a dark cybernetic studio room gesturing at floating neon hologram code widgets. The shot is tightly reframed for vertical social video with bold aesthetic blue and deep slate shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeed3TVvn7bOYXooFiV0jPm_tjTRJoSKYqPZeb2LvrH9bHF8MeBZ0UvaRM3IwRznwLJtl9nN--o6NsEEXIXxvBHBV25svlac3z1I7EKGzm5DK-KBlhrbALkyapsiERn8cEXWjTqGLk1QdMhvBqxwDgYVi9YYmNkCQVb0zypytqni960Z0uWaFIttaL4qKoGR7WIf09ilAKkQLC65KC2dr3PGW3agNsVBkjXxRf_ckzyf4dZpRFtHzbWWjo62FYP93DceTFnuQVFB1m"/>
+<!-- Dynamic Caption Overlay Mock -->
+<div class="absolute inset-x-2 bottom-12 flex justify-center text-center">
+<span class="bg-surface-container-lowest/90 backdrop-blur-md text-[#fde047] font-extrabold text-[12px] px-2.5 py-1 rounded-md border border-[#fde047]/40 shadow-lg tracking-wide uppercase">
+                WAIT TILL THE END ⚡️
+              </span>
+</div>
+<!-- Top HUD Badge -->
+<div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-secondary font-label-sm text-[10px] px-2 py-0.5 rounded border border-secondary/40 font-bold">
+                SCORE 96/100
+              </span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-code-stream text-[10px] px-1.5 py-0.5 rounded border border-outline-variant">
+                00:42
+              </span>
+</div>
+<!-- Play Overlay Button -->
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-lowest/40 backdrop-blur-[2px]">
+<div class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Metadata Rack -->
+<div class="p-3 bg-surface-container flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="px-1.5 py-0.2 bg-primary/10 text-primary border border-primary/30 rounded text-[9px] font-label-sm font-semibold">REELS</span>
+<span class="px-1.5 py-0.2 bg-secondary/10 text-secondary border border-secondary/30 rounded text-[9px] font-label-sm font-semibold">TIKTOK</span>
+</div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+                5 AI Hacks That Will Blow Your Mind
+              </h3>
+<p class="text-[11px] text-outline font-label-sm mt-0.5">ID: #REEL_916_0842</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                READY TO POST
+              </span>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors" title="Export Batch">
+<span class="material-symbols-outlined text-[16px]">ios_share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: 4AM Wake Up (POSTED) -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl overflow-hidden hover:border-primary transition-all duration-200 flex flex-col group shadow-md hover:shadow-primary/10">
+<div class="relative aspect-[9/16] w-full bg-surface-container-lowest overflow-hidden">
+<img alt="4AM Wake Up Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A dramatic cinematic vertical 9 to 16 format video frame of a moody minimalist luxury apartment at dawn with glowing digital clock displaying 4:00 AM. Deep moody midnight blues and subtle cyan highlights across the polished glass table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6_Ihj4sINCNNTAUuhL-3HXbcSeqGTrJeMKRBeXgKmZmMHHay39EoV0s_f4EZMI3N7N79VotTQMiIu_6w7H7mjs75R31IQw14ZWfBAroLTRGZWviXrBry0W__x6yw5TkzcboM0SDeq-Q9jL_WayWzu9DYlxihjh00bYAaNsxFl9Wqc-w4-nsXO_rFVfr8OslL-W_oU4fHfA86cj3zb0QfUnj9D_5MTNao5A554Ntw7tzAy4s9FG0bwF1nrTKEMmDs3T5i6RMFvpypC"/>
+<div class="absolute inset-x-2 bottom-12 flex justify-center text-center">
+<span class="bg-surface-container-lowest/90 backdrop-blur-md text-primary font-bold text-[11px] px-2 py-0.5 rounded border border-primary/40 uppercase">
+                THE SLEEP LIE EXPOSED
+              </span>
+</div>
+<div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded border border-primary/40 font-bold">
+                POSTED 3H AGO
+              </span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-code-stream text-[10px] px-1.5 py-0.5 rounded border border-outline-variant">
+                00:58
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-lowest/40 backdrop-blur-[2px]">
+<div class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-container flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="px-1.5 py-0.2 bg-primary/10 text-primary border border-primary/30 rounded text-[9px] font-label-sm font-semibold">FB PAGE #02</span>
+</div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+                Why Millionaires Wake Up At 4AM (Debunked)
+              </h3>
+<p class="text-[11px] text-secondary font-label-sm mt-0.5 font-medium">42.8k views • 1.9k shares</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+                Synced Meta API
+              </span>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors" title="View Insights">
+<span class="material-symbols-outlined text-[16px]">insights</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Top 3 SaaS Tools (RENDERING STATE) -->
+<div class="bg-surface-container-low border border-primary/60 rounded-xl overflow-hidden flex flex-col group shadow-md glow-cyan-sm relative">
+<div class="relative aspect-[9/16] w-full bg-surface-container-lowest overflow-hidden">
+<img alt="Top 3 SaaS Thumbnail" class="w-full h-full object-cover filter brightness-50" data-alt="A split screen vertical presentation showing a digital software interface workspace with cyan and purple modular panels on one side and a creator talking on the other side. High visual fidelity desktop dark-mode aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiFp9PIbz794oAWXog_p5814AiI3C7ewi_C3X05GPtE6GhHI12TiXteLrR6MjejxnqeO9vbb-Mtx6g64HXZQ91gtelH4c2Je-clpZltXgo-7xaPX6xa44XutasugFJLPTbLaoQJpjArSVLCu8SkcByv_hLgAiIols9-ChvM0R3ftlXRpf9Luz1slYSB6OpiElvmzNarBgSysgqoY0GlOfQz8N_Nu4uiXZvZMxBNa8qQGXkLcFC4Bze5GzbmLwxIaHqgnmEc3qEcKIF"/>
+<!-- Live Circular Spinner HUD -->
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 bg-surface-container-lowest/60 backdrop-blur-sm">
+<div class="relative w-14 h-14 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3"></path>
+<path class="text-primary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="74, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-label-md font-label-md text-primary font-bold">74%</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface mt-2 font-medium tracking-wide">ENCODING CUDA</span>
+<span class="text-[10px] font-code-stream text-outline mt-0.5">Frame 1,180 / 1,594</span>
+</div>
+<div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between">
+<span class="bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded border border-primary/50 font-bold animate-pulse">
+                RENDERING...
+              </span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-code-stream text-[10px] px-1.5 py-0.5 rounded border border-outline-variant">
+                00:34
+              </span>
+</div>
+</div>
+<div class="p-3 bg-surface-container flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="px-1.5 py-0.2 bg-primary/20 text-primary border border-primary/40 rounded text-[9px] font-label-sm font-semibold">WORKER #04</span>
+</div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1">
+                Top 3 SaaS Tools Automating Everything
+              </h3>
+<p class="text-[11px] text-outline font-label-sm mt-0.5">CUDA HW-Accelerated NVENC</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                Est: 8s Left
+              </span>
+<button class="p-1 text-outline hover:text-error transition-colors" title="Cancel Render">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Crypto Alpha Leaks (QUEUED) -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl overflow-hidden hover:border-primary transition-all duration-200 flex flex-col group shadow-md hover:shadow-primary/10">
+<div class="relative aspect-[9/16] w-full bg-surface-container-lowest overflow-hidden">
+<img alt="Crypto Alpha Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-70" data-alt="A vertical format motion blur frame depicting financial cybernetic data graphs, green candlestick charts and dark technical background with crisp typography. Sleek futuristic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmVOeGSnT3uhhSLrPT1WzmcQhqGYYLfJyGFrhzvK082DcPvK2FWrtkkcZozIAuESJkmYetfEvqokbaOJCjutdQREDldnuTeKnottYVzoAwNDB0O55B3Kxxm7mo2MSBTbGa_TMj409MNS00WB6MCcqcIj7j5uoZYPABRTa11pWB5YmFPrVMhonnCDkCMNXSKAOrRyfr1cAg7kQXxdwpInroQrWWdZwKdD-wh-tkBHrlFJft_WdAGztNcWUjj8rYZ2b1ZtiFF6FpzkWf"/>
+<div class="absolute inset-x-2 bottom-12 flex justify-center text-center">
+<span class="bg-surface-container-lowest/90 backdrop-blur-md text-on-surface font-bold text-[11px] px-2 py-0.5 rounded border border-outline-variant uppercase">
+                SCHEDULED 18:00 EST
+              </span>
+</div>
+<div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-outline font-label-sm text-[10px] px-2 py-0.5 rounded border border-outline-variant">
+                QUEUED • SLOT #2
+              </span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-code-stream text-[10px] px-1.5 py-0.5 rounded border border-outline-variant">
+                00:51
+              </span>
+</div>
+</div>
+<div class="p-3 bg-surface-container flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="px-1.5 py-0.2 bg-outline-variant text-on-surface-variant rounded text-[9px] font-label-sm font-semibold">SCHEDULED</span>
+</div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+                Crypto Alpha Leaks for 2025
+              </h3>
+<p class="text-[11px] text-outline font-label-sm mt-0.5">Auto-Post Scheduled: 6:00 PM</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+                Waiting in Queue
+              </span>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors" title="Edit Parameters">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Passive Income Myth -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-xl overflow-hidden hover:border-primary transition-all duration-200 flex flex-col group shadow-md hover:shadow-primary/10">
+<div class="relative aspect-[9/16] w-full bg-surface-container-lowest overflow-hidden">
+<img alt="Passive Income Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A portrait orientation video thumbnail with intense dramatic lighting of a creator sitting in front of neon purple and deep slate led tubes speaking passionately with kinetic typography subtitles centered on the frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs9bioSAt1aWvHfd0M7BX3iidPjC0SueWeQMFR44UsTNk-773wH4VQihhttao34HdCAx7fMmeQ7_4lldQj3xteCJH2pNjuuyWDrW_5PhAzuQlcOL3u5dXD_EuNTm5u2vTwldz6y7KLHNLtPAEBrDwTA5795toxHR2vxfXr6dfaSalkPrakqpc7_zKcMr2mbsNy8R1BHd0dkIo1Hynr2nPqwRyFUM1PlG2Infk0-2f9VRSwTRBbZuWZOkmo1WDuTVKzUtldGxjgTR9q"/>
+<div class="absolute inset-x-2 bottom-12 flex justify-center text-center">
+<span class="bg-surface-container-lowest/90 backdrop-blur-md text-[#34d399] font-bold text-[11px] px-2 py-0.5 rounded border border-[#34d399]/40 uppercase">
+                THE UNTOLD TRUTH
+              </span>
+</div>
+<div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-secondary font-label-sm text-[10px] px-2 py-0.5 rounded border border-secondary/40 font-bold">
+                SCORE 91/100
+              </span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-code-stream text-[10px] px-1.5 py-0.5 rounded border border-outline-variant">
+                00:45
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-lowest/40 backdrop-blur-[2px]">
+<div class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-container flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="px-1.5 py-0.2 bg-primary/10 text-primary border border-primary/30 rounded text-[9px] font-label-sm font-semibold">REELS SYNC</span>
+<span class="px-1.5 py-0.2 bg-tertiary/10 text-tertiary border border-tertiary/30 rounded text-[9px] font-label-sm font-semibold">AUDIO #4</span>
+</div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+                Passive Income Myth vs Reality
+              </h3>
+<p class="text-[11px] text-outline font-label-sm mt-0.5">ElevenLabs: Adam Voiceover</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                COMPLETED
+              </span>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors" title="Push Live">
+<span class="material-symbols-outlined text-[16px]">publish</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 3: Real-Time Live Log Terminal & Pipeline Diagnostics             -->
+<!-- ========================================================================= -->
+<section class="bg-surface-container-lowest border border-outline-variant/80 rounded-xl overflow-hidden shadow-xl">
+<!-- Terminal Header / Micro-Toolbar -->
+<div class="flex items-center justify-between px-4 py-2.5 bg-surface-container-low border-b border-outline-variant/60">
+<div class="flex items-center gap-3">
+<!-- Cyber dots -->
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#ef4444]/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#fbbf24]/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#34d399]/80"></span>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant pl-3">
+<span class="material-symbols-outlined text-outline text-[16px]">terminal</span>
+<span class="font-code-stream text-label-sm text-on-surface font-semibold tracking-wide">ENGINE_RUNTIME_STREAM // logs.stdout</span>
+<span class="bg-secondary/15 text-secondary border border-secondary/30 rounded px-1.5 py-0.2 text-[9px] font-label-sm uppercase font-semibold">LIVE CONNECTED</span>
+</div>
+</div>
+<!-- Filter Buttons & Stream Actions -->
+<div class="flex items-center gap-2 text-label-sm font-label-sm">
+<div class="hidden sm:flex items-center bg-surface-container-lowest p-0.5 rounded border border-outline-variant text-[11px]">
+<button class="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-medium">All</button>
+<button class="px-2 py-0.5 rounded text-outline hover:text-on-surface">Ingest</button>
+<button class="px-2 py-0.5 rounded text-outline hover:text-on-surface">AI-Hook</button>
+<button class="px-2 py-0.5 rounded text-outline hover:text-on-surface">FFmpeg</button>
+<button class="px-2 py-0.5 rounded text-outline hover:text-on-surface">Cloud</button>
+</div>
+<div class="flex items-center gap-1 border-l border-outline-variant pl-2">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface text-[11px] font-code-stream flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+<span>Copy</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface text-[11px] font-code-stream flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">delete_sweep</span>
+<span>Clear</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Terminal Body / Stream Code Lines -->
+<div class="p-4 font-code-stream text-code-stream space-y-1.5 max-h-56 overflow-y-auto leading-relaxed bg-[#070a10]">
+<!-- Log line 1 -->
+<div class="flex items-start gap-2 text-on-surface-variant hover:bg-surface-container/30 px-1 rounded transition-colors">
+<span class="text-outline select-none">01</span>
+<span class="text-outline">[14:28:02]</span>
+<span class="text-primary font-semibold">[INGEST]</span>
+<span class="text-on-surface">Fetched 12 new high-velocity reels from <span class="text-primary underline">@techinsider_fb</span> (Avg Engagement Score: 8.9/10)</span>
+</div>
+<!-- Log line 2 -->
+<div class="flex items-start gap-2 text-on-surface-variant hover:bg-surface-container/30 px-1 rounded transition-colors">
+<span class="text-outline select-none">02</span>
+<span class="text-outline">[14:28:15]</span>
+<span class="text-tertiary font-semibold">[AI-CORE]</span>
+<span class="text-on-surface">Synthesizing 3 viral hook variations with Whisper transcript + GPT-4o Vision OCR...</span>
+<span class="text-secondary font-mono text-[11px]">[OK 280ms]</span>
+</div>
+<!-- Log line 3 -->
+<div class="flex items-start gap-2 text-on-surface-variant hover:bg-surface-container/30 px-1 rounded transition-colors">
+<span class="text-outline select-none">03</span>
+<span class="text-outline">[14:28:23]</span>
+<span class="text-primary-container font-semibold">[FFMPEG-CUDA]</span>
+<span class="text-on-surface">Smart-crop 9:16 reframe centered on facial motion vector <span class="text-outline font-mono">(Bounding Box: x=420, y=180, w=1080, h=1920)</span></span>
+</div>
+<!-- Log line 4 -->
+<div class="flex items-start gap-2 text-on-surface-variant hover:bg-surface-container/30 px-1 rounded transition-colors">
+<span class="text-outline select-none">04</span>
+<span class="text-outline">[14:28:34]</span>
+<span class="text-[#fde047] font-semibold">[BURN-IN]</span>
+<span class="text-on-surface">Dynamic kinetic word-by-word captions injected with yellow highlight glow &amp; drop shadow</span>
+</div>
+<!-- Log line 5 -->
+<div class="flex items-start gap-2 text-on-surface-variant hover:bg-surface-container/30 px-1 rounded transition-colors">
+<span class="text-outline select-none">05</span>
+<span class="text-outline">[14:28:40]</span>
+<span class="text-secondary font-semibold">[EXPORT]</span>
+<span class="text-on-surface">Asset rendered successfully: <span class="text-secondary font-mono font-medium">reel_synth_0842.mp4</span> (48.2 MB / 60fps / H.264 High Profile)</span>
+</div>
+<!-- Log line 6 -->
+<div class="flex items-start gap-2 text-on-surface-variant hover:bg-surface-container/30 px-1 rounded transition-colors bg-secondary/5 py-0.5">
+<span class="text-outline select-none">06</span>
+<span class="text-outline">[14:28:44]</span>
+<span class="text-secondary font-semibold">[POST-DAEMON]</span>
+<span class="text-on-surface">Handshake established with Meta Graph API v21.0 - Scheduled for slot <span class="text-primary font-bold">18:00 EST</span> across 4 Target Facebook Reels Pages.</span>
+</div>
+<!-- Blinking cursor line -->
+<div class="flex items-center gap-2 text-outline pt-1 pl-1">
+<span class="text-secondary select-none">&gt;</span>
+<span class="text-outline font-code-stream">Daemon idle. Listening for new media webhooks...</span>
+<span class="w-2 h-4 bg-primary animate-pulse"></span>
+</div>
+</div>
+<!-- Execution Stats Footer Bar -->
+<div class="flex flex-wrap items-center justify-between px-4 py-2 bg-surface-container-low border-t border-outline-variant/60 text-label-sm font-label-sm text-outline">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Active Workers: <strong class="text-on-surface font-code-stream">8 / 8 Online</strong>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">memory</span>
+            GPU Temp: <strong class="text-on-surface font-code-stream">62°C</strong>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">speed</span>
+            Render Speed: <strong class="text-on-surface font-code-stream">3.4x Realtime</strong>
+</span>
+</div>
+<div class="flex items-center gap-4 mt-1 sm:mt-0">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-outline">cloud_queue</span>
+            Cloud Storage: <strong class="text-on-surface font-code-stream">4.2 TB / 10 TB (AWS S3)</strong>
+</span>
+<span class="text-secondary font-semibold font-code-stream">v3.4.2-RELEASE</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Lightweight micro-interaction script -->
+<script>
+    // Smooth interaction toggling
+    document.addEventListener('DOMContentLoaded', () => {
+      const renderBtn = document.querySelector('button:has(.material-symbols-outlined:contains("movie_creation"))');
+      if (renderBtn) {
+        renderBtn.addEventListener('click', () => {
+          renderBtn.classList.add('opacity-80', 'scale-95');
+          setTimeout(() => renderBtn.classList.remove('opacity-80', 'scale-95'), 150);
+        });
+      }
+    });
+  </script>
+</body></html>

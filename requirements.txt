@@ -1,0 +1,10 @@
+# FB Auto Video Studio Pro v3 — Core Dependencies
+customtkinter==5.2.2
+google-genai==1.73.1
+google-auth==2.49.2
+gspread==6.2.1
+Pillow==12.3.0
+imageio-ffmpeg==0.6.0
+yt-dlp>=2026.3.17
+requests>=2.31.0
+pytest>=8.0.0

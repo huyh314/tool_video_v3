@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FB Auto Video Studio Pro v3 - Hook &amp; Script Studio Editor</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#340080",
+            "on-surface-variant": "#c2c6d6",
+            "on-secondary-container": "#00311f",
+            "on-primary-fixed": "#001a42",
+            "surface-container": "#1c1f2a",
+            "surface": "#0f131d",
+            "secondary-container": "#00a572",
+            "surface-bright": "#353944",
+            "surface-dim": "#0f131d",
+            "surface-container-highest": "#313540",
+            "tertiary-container": "#a078ff",
+            "on-secondary-fixed-variant": "#005236",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-fixed": "#23005c",
+            "error": "#ffb4ab",
+            "inverse-on-surface": "#2c303b",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#d0bcff",
+            "tertiary-fixed": "#e9ddff",
+            "on-background": "#dfe2f1",
+            "inverse-primary": "#005ac2",
+            "background": "#0f131d",
+            "on-secondary-fixed": "#002113",
+            "surface-container-high": "#262a35",
+            "on-tertiary-fixed-variant": "#5516be",
+            "primary-fixed": "#d8e2ff",
+            "outline": "#8c909f",
+            "primary": "#adc6ff",
+            "secondary-fixed": "#6ffbbe",
+            "on-error": "#690005",
+            "on-primary": "#002e6a",
+            "tertiary": "#d0bcff",
+            "primary-fixed-dim": "#adc6ff",
+            "primary-container": "#4d8eff",
+            "surface-container-low": "#171b26",
+            "on-surface": "#dfe2f1",
+            "surface-tint": "#adc6ff",
+            "on-secondary": "#003824",
+            "inverse-surface": "#dfe2f1",
+            "on-error-container": "#ffdad6",
+            "on-primary-container": "#00285d",
+            "on-tertiary": "#3c0091",
+            "surface-variant": "#313540",
+            "surface-container-lowest": "#0a0e18",
+            "secondary-fixed-dim": "#4edea3",
+            "secondary": "#4edea3",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-compact": "0.5rem",
+            "space-md": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "margin": "1.5rem",
+            "margin-dock": "0.75rem",
+            "space-lg": "1.25rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Be Vietnam Pro"],
+            "code-stream": ["JetBrains Mono"],
+            "body-md": ["Be Vietnam Pro"],
+            "label-md": ["JetBrains Mono"],
+            "headline-sm": ["Be Vietnam Pro"],
+            "title-md": ["Be Vietnam Pro"],
+            "label-sm": ["JetBrains Mono"],
+            "body-sm": ["Be Vietnam Pro"],
+            "display-md": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "code-stream": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Custom scrollbars for cybernetic terminal density */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0e18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262a35;
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .neon-border-active {
+      box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.35);
+      border-color: #4d8eff !important;
+    }
+    .emerald-pulse {
+      box-shadow: 0 0 10px rgba(78, 222, 163, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar (Rail / Collapsible Master Command Deck)     -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 border-r border-outline-variant bg-surface-container-low flex flex-col justify-between p-space-md z-40 hidden lg:flex">
+<!-- Header identity block -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-primary relative">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-secondary rounded-full emerald-pulse"></span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight text-on-surface">AUTOSTUDIO PRO</span>
+<span class="text-label-sm font-label-sm text-outline tracking-wider">v3.4 CORE ACTIVE</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container py-2 px-3 rounded-lg text-label-md font-label-md font-semibold tracking-wide hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+<span>RUN AUTOMATION</span>
+</button>
+<!-- Nav Items: AI Scripting is ACTIVE match -->
+<nav class="flex flex-col gap-1 mt-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#dashboard">
+<span class="material-symbols-outlined" data-icon="space_dashboard">space_dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#channel-monitor">
+<span class="material-symbols-outlined" data-icon="subscriptions">subscriptions</span>
+<span class="text-label-md font-label-md">Channel Monitor</span>
+<span class="ml-auto text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-secondary border border-secondary/20">14 Active</span>
+</a>
+<!-- ACTIVE: AI Scripting -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-highest text-primary font-medium border-l-2 border-primary active:scale-[0.98] transition-all" href="#ai-scripting">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-label-md font-label-md font-semibold">AI Scripting</span>
+<span class="ml-auto text-label-sm font-label-sm px-1.5 py-0.2 bg-primary/20 text-primary border border-primary/30 rounded">Lab</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#render-queue">
+<span class="material-symbols-outlined" data-icon="movie_filter">movie_filter</span>
+<span class="text-label-md font-label-md">Render Queue</span>
+<span class="ml-auto text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-secondary-container/20 text-secondary border border-secondary/30">9/16 Active</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#settings">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Deck Diagnostics -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/40">
+<div class="bg-surface-container-lowest p-2.5 rounded-lg border border-outline-variant/30 text-code-stream font-code-stream">
+<div class="flex justify-between items-center text-outline text-label-sm mb-1">
+<span>GPU TELEMETRY</span>
+<span class="text-secondary font-medium">92% IDLE</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[28%]"></div>
+</div>
+<div class="flex justify-between text-label-sm text-outline-variant mt-1.5">
+<span>TFLOPS: 84.2</span>
+<span>TEMP: 49°C</span>
+</div>
+</div>
+<div class="flex flex-col gap-0.5">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 text-label-sm font-label-sm" href="#system-diagnostics">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+<span>System Diagnostics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 text-label-sm font-label-sm" href="#documentation">
+<span class="material-symbols-outlined text-[18px]" data-icon="help_outline">help_outline</span>
+<span>Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE SHELL                                                      -->
+<!-- ========================================================================= -->
+<div class="lg:pl-64 flex flex-col min-h-screen bg-background">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar (Docked Header with App Engine Stats)          -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-30 flex items-center justify-between w-full h-14 px-4 lg:px-6 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant">
+<!-- Left: Title, Badges & Breadcrumb -->
+<div class="flex items-center gap-3 lg:gap-4 truncate">
+<!-- Mobile rail toggler -->
+<button class="lg:hidden text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-title-md font-title-md font-bold text-on-surface tracking-wider uppercase hidden sm:inline">FB Auto Video Studio Pro v3</span>
+<span class="hidden sm:inline text-outline-variant">/</span>
+<div class="flex items-center gap-2 px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary emerald-pulse"></span>
+<span class="text-secondary font-semibold">AI Pipeline: Ready to Sync</span>
+</div>
+<span class="hidden md:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/50 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="smart_toy">smart_toy</span>
+<span>GEMINI 3.6 FLASH</span>
+</span>
+</div>
+</div>
+<!-- Center Links (from JSON) -->
+<div class="hidden xl:flex items-center gap-5 text-label-sm font-label-sm">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#cluster">Render Cluster A</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#batch">Batch Pipeline</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#logs">Logs</a>
+</div>
+<!-- Right: Action Bar from JSON & Studio controls -->
+<div class="flex items-center gap-2 sm:gap-3">
+<div class="hidden sm:flex items-center gap-2">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm border border-outline-variant transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span>
+<span>Sync Sheets</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm border border-outline-variant transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="youtube_searched_for">youtube_searched_for</span>
+<span>Scan Channels</span>
+</button>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant mx-1 hidden sm:block"></div>
+<!-- Trailing icon actions from JSON -->
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors" title="Storage Vault">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</button>
+<!-- Admin Profile -->
+<div class="flex items-center gap-2 pl-2">
+<img class="w-7 h-7 rounded-full border border-primary/50 object-cover" data-alt="Cybernetic workstation administrator badge profile with high tech illuminated blue edge lighting, deep obsidian slate backdrop, cinematic professional portrait framing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2gXDhq8NlP4ZgboJJz34p5wWsP2R51cd3z73YsCl82UUMoIiBPd9Br1q03AWi6rCFC0JDfiTIxpBLUm8Vq8jh_Sna_xqQurcy9XCsJNhwi9__EuZcMP2y6NiUhp3FFZgl2nCm4MFhqtmbHvCHxBaTYveRdHkVInor8u97_p8TDIjdJYgqIBzoMY55uxXwYjEJKBU4m2MK4gOnX2ZzCRBK0gU5tFEZVPxialbgLF2tZZUVHtcB9O1VD0QYiwpdJGuN1r8nSG1xmQ54"/>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- SECONDARY CONTEXTUAL HEADER: Script Lab Breadcrumbs & Meta Pill Bar        -->
+<!-- ========================================================================= -->
+<div class="px-4 lg:px-6 py-2.5 bg-surface-container-low border-b border-outline-variant/60 flex flex-wrap items-center justify-between gap-3">
+<!-- Breadcrumb and Target Tags -->
+<div class="flex flex-wrap items-center gap-2 sm:gap-3 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-outline">
+<span class="hover:text-on-surface transition-colors cursor-pointer">Quản lý Kịch bản</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-code-stream">Reel #REEL_916_0842</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-medium">Hook &amp; Script Inspector</span>
+</div>
+<div class="h-3 w-[1px] bg-outline-variant hidden sm:block"></div>
+<!-- Target pills -->
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant border border-outline-variant/50 text-label-sm">
+            Target: <strong class="text-on-surface font-medium">Sức khỏe &amp; Lối sống</strong>
+</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant border border-outline-variant/50 text-label-sm">
+            Thời lượng: <strong class="text-secondary font-code-stream font-medium">45s - 60s</strong>
+</span>
+</div>
+</div>
+<!-- Top Right Action Controls -->
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface border border-outline-variant/60 text-label-sm font-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="history">history</span>
+<span>Lịch sử phiên bản (v2.1)</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface border border-outline-variant/60 text-label-sm font-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="data_object">data_object</span>
+<span>Xuất kịch bản JSON</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-primary hover:bg-surface-bright border border-primary/40 text-label-sm font-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="prompt_suggestion">prompt_suggestion</span>
+<span>Cài đặt Gemini Prompt</span>
+</button>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MAIN 2-COLUMN SPLIT WORKSTATION CONTENT                                  -->
+<!-- ========================================================================= -->
+<main class="flex-1 p-3 lg:p-4 grid grid-cols-1 xl:grid-cols-12 gap-4 max-w-[1920px] mx-auto w-full">
+<!-- ======================================================================= -->
+<!-- LEFT COLUMN: Raw Source Video (9:16) & Transcript Inspector (5 cols)     -->
+<!-- ======================================================================= -->
+<section class="xl:col-span-5 flex flex-col gap-4">
+<!-- 1. Video Player & Source Card -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-lg p-3 flex flex-col gap-3">
+<!-- Card Header -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="movie_edit">movie_edit</span>
+<span class="text-title-md font-title-md text-on-surface">Source Reel 9:16 Viewport</span>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/30">
+              ORIGINAL EXTRACTED
+            </span>
+</div>
+<!-- Vertical 9:16 Reel Player Container -->
+<div class="relative w-full bg-surface-container-lowest rounded-lg overflow-hidden border border-outline-variant/40 flex flex-col items-center justify-center group" style="min-height: 380px;">
+<!-- Simulated Video Preview Image -->
+<div class="relative w-full max-w-[240px] aspect-[9/16] rounded overflow-hidden shadow-2xl border border-outline-variant/60 my-2 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Vertical Facebook Reel video frame screenshot capturing a charismatic wellness doctor holding a glass of warm water inside a sleek cybernetic modern kitchen studio with low light moody cinematic ambience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp1rKzsyCA2fbu0L--SnqcrLDIjyGYqe1B4FuprrP_-zfEvYcRPIfuLHoMo9GcaqUdh6OTXpvHHk9kAYKfnoW2xqfY9xQbZGYcG1bMjt5UPKN0eigmh5ejqwz1KkKs6oLz29B1FmUSgXkPoqyE46njaUpOIX7-_ttG03qIyVbTjV8cLHI4QPe_fpD1p0EJGxiduxKLqOsBdXN9SWfc2VDbDSAbh5cVBjAzsOdG5dI2J2NouvNC38-rbust5-yAKG-q1CP1kzjbGOtE"/>
+<!-- Overlay HUD Badges -->
+<div class="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md border border-white/10 text-[10px] font-label-sm text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+<span>REC 1080x1920</span>
+</div>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-[10px] font-code-stream text-primary border border-primary/20">
+                60 FPS
+              </div>
+<!-- Live Subtitle Overlay Simulation -->
+<div class="absolute bottom-12 inset-x-2 text-center pointer-events-none">
+<span class="bg-surface-container-lowest/90 text-yellow-300 font-headline-sm text-xs px-2 py-1 rounded font-bold shadow-lg uppercase tracking-wide border border-yellow-400/30">
+                  ⚠️ 3 THÓI QUEN ĐANG ÂM THẦM...
+                </span>
+</div>
+<!-- Central Play Button HUD -->
+<button class="absolute inset-0 m-auto w-12 h-12 rounded-full bg-surface-container-lowest/80 backdrop-blur-md border border-primary/50 text-primary flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[28px]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Scrub Bar & Controls Strip -->
+<div class="w-full bg-surface-container-low/90 backdrop-blur px-3 py-2 border-t border-outline-variant/50 flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm font-code-stream text-primary">00:38</span>
+<!-- Scrub line -->
+<div class="flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden relative cursor-pointer group/bar">
+<div class="h-full bg-primary relative" style="width: 70%;">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-on-primary-fixed border border-primary shadow"></div>
+</div>
+</div>
+<span class="text-label-sm font-label-sm font-code-stream text-outline">00:54</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<button class="hover:text-on-surface"><span class="material-symbols-outlined text-[18px]" data-icon="pause">pause</span></button>
+<button class="hover:text-on-surface"><span class="material-symbols-outlined text-[18px]" data-icon="volume_up">volume_up</span></button>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-outline font-code-stream text-[10px]">1.0x SPD</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:text-primary flex items-center gap-1 text-[11px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="subtitles">subtitles</span> Subtitles On
+                  </button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[16px]" data-icon="fullscreen">fullscreen</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Video Metadata Pill Bar -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-label-sm font-label-sm">
+<div class="p-2 rounded bg-surface-container border border-outline-variant/40 flex flex-col">
+<span class="text-outline text-[10px]">KÊNH NGUỒN</span>
+<span class="text-on-surface font-semibold truncate">Chú Đực Sức Khỏe</span>
+</div>
+<div class="p-2 rounded bg-surface-container border border-outline-variant/40 flex flex-col">
+<span class="text-outline text-[10px]">LƯỢT XEM GỐC</span>
+<span class="text-primary font-code-stream font-semibold">342.5K Views</span>
+</div>
+<div class="p-2 rounded bg-surface-container border border-outline-variant/40 flex flex-col">
+<span class="text-outline text-[10px]">TƯƠNG TÁC (ER)</span>
+<span class="text-secondary font-code-stream font-semibold">8.4% Viral</span>
+</div>
+<div class="p-2 rounded bg-surface-container border border-outline-variant/40 flex flex-col">
+<span class="text-outline text-[10px]">ĐỘ DÀI VIDEO</span>
+<span class="text-on-surface font-code-stream font-semibold">54 Giây</span>
+</div>
+</div>
+<!-- Extracted Audio Waveform Preview Bar -->
+<div class="p-2.5 rounded bg-surface-container-lowest border border-outline-variant/40 flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="graphic_eq">graphic_eq</span>
+<span>Extracted Audio Waveform (Stereo 48kHz)</span>
+</span>
+<button class="text-primary hover:underline text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="download">download</span> Tải file WAV
+              </button>
+</div>
+<!-- Pseudo Waveform Visualization -->
+<div class="flex items-center gap-1 h-8 px-1 bg-surface-container-low rounded overflow-hidden">
+<div class="w-1 bg-outline-variant/50 h-2 rounded-full"></div>
+<div class="w-1 bg-primary/70 h-4 rounded-full"></div>
+<div class="w-1 bg-primary h-6 rounded-full"></div>
+<div class="w-1 bg-primary h-7 rounded-full"></div>
+<div class="w-1 bg-primary/90 h-5 rounded-full"></div>
+<div class="w-1 bg-primary h-8 rounded-full"></div>
+<div class="w-1 bg-primary/60 h-3 rounded-full"></div>
+<div class="w-1 bg-primary h-6 rounded-full"></div>
+<div class="w-1 bg-secondary h-8 rounded-full"></div>
+<div class="w-1 bg-secondary h-7 rounded-full"></div>
+<div class="w-1 bg-primary h-5 rounded-full"></div>
+<div class="w-1 bg-primary h-8 rounded-full"></div>
+<div class="w-1 bg-primary/50 h-3 rounded-full"></div>
+<div class="w-1 bg-primary/80 h-6 rounded-full"></div>
+<div class="w-1 bg-primary h-7 rounded-full"></div>
+<div class="w-1 bg-primary h-5 rounded-full"></div>
+<div class="w-1 bg-outline-variant/60 h-2 rounded-full"></div>
+<div class="w-1 bg-primary h-6 rounded-full"></div>
+<div class="w-1 bg-primary h-8 rounded-full"></div>
+<div class="w-1 bg-secondary h-7 rounded-full"></div>
+<div class="w-1 bg-primary h-4 rounded-full"></div>
+<div class="w-1 bg-primary h-6 rounded-full"></div>
+<div class="w-1 bg-primary/70 h-5 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-2 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- 2. OCR & Audio Transcript Stream -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-lg p-3 flex flex-col gap-3 flex-1">
+<!-- Transcript Stream Header -->
+<div class="flex flex-wrap items-center justify-between pb-2 border-b border-outline-variant/40 gap-2">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="transcribe">transcribe</span>
+<span class="text-title-md font-title-md text-on-surface">Bản trích xuất giọng nói (Whisper API v3)</span>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm text-outline mt-0.5">
+<span>Số từ: <strong class="text-on-surface">186 từ</strong></span>
+<span>•</span>
+<span>Tốc độ: <strong class="text-secondary font-code-stream">165 wpm</strong></span>
+<span>•</span>
+<span class="text-secondary">Độ chính xác OCR: 98.6%</span>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="flex items-center gap-2">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm border border-outline-variant/40 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="content_copy">content_copy</span>
+<span>Sao chép Transcript</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm border border-outline-variant/40 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="translate">translate</span>
+<span>Dịch sang EN</span>
+</button>
+</div>
+</div>
+<!-- Timestamped Transcript Log Flow -->
+<div class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
+<!-- Log item 1 -->
+<div class="p-2.5 rounded bg-surface-container border-l-2 border-primary hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-code-stream text-primary bg-primary/10 px-1.5 py-0.5 rounded border border-primary/20">
+                  [00:00 - 00:04]
+                </span>
+<span class="text-[10px] font-label-sm uppercase px-1.5 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-semibold border border-tertiary/30">
+                  Hook Keypoint
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+                "Có 3 thói quen buổi sáng đang âm thầm hủy hoại gan thận của bạn mà 90% người trẻ đều mắc phải..."
+              </p>
+</div>
+<!-- Log item 2 -->
+<div class="p-2.5 rounded bg-surface-container border-l-2 border-outline-variant hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-code-stream text-outline bg-surface-container-lowest px-1.5 py-0.5 rounded">
+                  [00:05 - 00:14]
+                </span>
+<span class="text-[10px] font-label-sm uppercase px-1.5 py-0.5 rounded bg-error-container/40 text-error font-semibold border border-error/30">
+                  Pain Point
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                "Thứ nhất là uống cà phê hoặc nước đá lạnh buốt ngay khi bụng còn rỗng. Axit dạ dày sẽ bị kích thích đột ngột gây viêm loét và áp lực lên gan..."
+              </p>
+</div>
+<!-- Log item 3 -->
+<div class="p-2.5 rounded bg-surface-container border-l-2 border-outline-variant hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-code-stream text-outline bg-surface-container-lowest px-1.5 py-0.5 rounded">
+                  [00:15 - 00:28]
+                </span>
+<span class="text-[10px] font-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-medium">
+                  Analysis
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                "Thứ hai là nhịn tiểu và lướt điện thoại trên giường hơn 20 phút. Độc tố tích tụ qua đêm không được giải phóng kịp thời, máu dồn lên mắt..."
+              </p>
+</div>
+<!-- Log item 4 -->
+<div class="p-2.5 rounded bg-surface-container border-l-2 border-secondary hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm font-code-stream text-secondary bg-secondary/10 px-1.5 py-0.5 rounded border border-secondary/20">
+                  [00:48 - 00:54]
+                </span>
+<span class="text-[10px] font-label-sm uppercase px-1.5 py-0.5 rounded bg-secondary-container/30 text-secondary font-semibold border border-secondary/30">
+                  CTA Climax
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+                "Hãy thay đổi ngay từ sáng mai bằng 1 cốc nước ấm 300ml. Nhấn lưu video này lại và gửi cho người thân yêu của bạn nhé!"
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================================= -->
+<!-- RIGHT COLUMN: Gemini AI Script Generator & Editor (7 cols)               -->
+<!-- ======================================================================= -->
+<section class="xl:col-span-7 flex flex-col gap-4">
+<!-- 1. VIRAL HOOK VARIATION SELECTOR -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-lg p-3 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-400 text-[20px]" data-icon="bolt">bolt</span>
+<span class="text-title-md font-title-md text-on-surface">Bộ 3 Hook Triệu View (Đề xuất bởi Gemini AI 3.6 Flash)</span>
+</div>
+<button class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="refresh">refresh</span>
+<span>Tạo thêm Hook mới</span>
+</button>
+</div>
+<!-- 3 Interactive Hook Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+<!-- Hook 1: Selected Active -->
+<div class="relative p-3 rounded-lg bg-surface-container-high border-2 border-primary neon-border-active cursor-pointer transition-all flex flex-col justify-between gap-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>HOOK #1 (ACTIVE)</span>
+</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/20 text-primary border border-primary/40 font-code-stream text-label-sm font-bold">
+                  94.8%
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface font-medium leading-snug">
+                "DỪNG NGAY 3 thói quen này nếu không muốn lá gan 'kêu cứu' trước tuổi 30!"
+              </p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/30 text-label-sm font-label-sm">
+<span class="text-[10px] text-tertiary">Tò mò + Cảnh báo</span>
+<button class="text-primary hover:text-on-surface text-[11px] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="volume_up">volume_up</span> Thử giọng
+                </button>
+</div>
+</div>
+<!-- Hook 2 -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/60 hover:border-outline hover:bg-surface-container-high cursor-pointer transition-all flex flex-col justify-between gap-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-medium text-outline">HOOK #2</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-stream text-label-sm">
+                  89.2%
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">
+                "Bác sĩ cảnh báo: 90% người trẻ đang tàn phá sức khỏe vì cốc nước đầu ngày!"
+              </p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/30 text-label-sm font-label-sm">
+<span class="text-[10px] text-outline">Chuyên gia y tế</span>
+<button class="text-outline-variant hover:text-on-surface text-[11px] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="volume_up">volume_up</span> Thử giọng
+                </button>
+</div>
+</div>
+<!-- Hook 3 -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/60 hover:border-outline hover:bg-surface-container-high cursor-pointer transition-all flex flex-col justify-between gap-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-medium text-outline">HOOK #3</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-stream text-label-sm">
+                  86.5%
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">
+                "Tại sao bạn luôn mệt mỏi mỗi sáng thức dậy? Sự thật giật mình ở thói quen #1..."
+              </p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/30 text-label-sm font-label-sm">
+<span class="text-[10px] text-outline">Đặt câu hỏi gợi mở</span>
+<button class="text-outline-variant hover:text-on-surface text-[11px] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="volume_up">volume_up</span> Thử giọng
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. 8 STRUCTURED VIDEO BULLET POINTS (Timeline & Subtitle Editor) -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-lg p-3 flex flex-col gap-3">
+<div class="flex items-center justify-between pb-1 border-b border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="format_list_numbered">format_list_numbered</span>
+<span class="text-title-md font-title-md text-on-surface">Kịch bản chi tiết 8 bước (Pacing &amp; Subtitle nhảy chữ)</span>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm">
+<span class="text-outline">Tổng thời lượng kịch bản:</span>
+<span class="font-code-stream text-secondary font-bold px-2 py-0.5 bg-secondary/10 border border-secondary/20 rounded">
+                54.0 Giây
+              </span>
+</div>
+</div>
+<!-- Structured timeline list -->
+<div class="space-y-2 max-h-[340px] overflow-y-auto pr-1">
+<!-- Step 1 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-primary bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:00 - 00:04 (4s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Bước 1: Hook mở đầu chớp nhoáng</span>
+<span class="text-[10px] font-label-sm text-tertiary bg-tertiary/10 px-1.5 rounded border border-tertiary/20">Zoom in 1.2x + Âm Whoosh</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="DỪNG NGAY 3 thói quen này nếu không muốn lá gan 'kêu cứu' trước tuổi 30!"/>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-outline bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:04 - 00:09 (5s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Bước 2: Đặt vấn đề &amp; Đồng cảm</span>
+<span class="text-[10px] font-label-sm text-yellow-400 bg-yellow-400/10 px-1.5 rounded border border-yellow-400/20">Sub màu vàng chanh</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="Bạn có đang làm điều này mỗi 7h sáng mà nghĩ nó vô hại không?"/>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-outline bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:09 - 00:17 (8s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Bước 3: Điểm 1 - Cà phê đá bụng rỗng</span>
+<span class="text-[10px] font-label-sm text-error bg-error/10 px-1.5 rounded border border-error/20">Icon cảnh báo dạ dày</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="Uống nước đá hoặc cafe khi dạ dày rỗng khiến nồng độ axit tăng vọt, sốc nhiệt đường ruột."/>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-outline bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:17 - 00:25 (8s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Bước 4: Điểm 2 - Bỏ bữa sáng</span>
+<span class="text-[10px] font-label-sm text-outline bg-surface-container-high px-1.5 rounded">B-roll minh họa trao đổi chất</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="Bỏ bữa sáng dẫn đến dịch mật ứ đọng, tạo sỏi mật và làm suy giảm nghiêm trọng tốc độ trao đổi chất."/>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-outline bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:25 - 00:33 (8s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Bước 5: Điểm 3 - Vừa ăn vừa lướt mạng xã hội</span>
+<span class="text-[10px] font-label-sm text-outline bg-surface-container-high px-1.5 rounded">Hiệu ứng phân tâm</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="Vừa ăn vừa xem điện thoại kích hoạt hệ thần kinh căng thẳng, khiến dịch tiêu hóa tiết không đều."/>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-secondary bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:33 - 00:41 (8s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-secondary">Bước 6: Giải pháp chuẩn Y khoa</span>
+<span class="text-[10px] font-label-sm text-secondary bg-secondary/10 px-1.5 rounded border border-secondary/20">Checkmark Xanh</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="Giải pháp đơn giản: Uống ngay 1 ly nước ấm 300ml ngay sau khi thức dậy trước mọi thói quen khác."/>
+</div>
+</div>
+<!-- Step 7 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-secondary bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:41 - 00:48 (7s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Bước 7: Lợi ích tức thì</span>
+<span class="text-[10px] font-label-sm text-secondary bg-secondary/10 px-1.5 rounded border border-secondary/20">Hiệu ứng Glow rực rỡ</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="Giúp gan thận kích hoạt chế độ thải độc tự nhiên, da sáng và năng lượng dồi dào cả ngày dài."/>
+</div>
+</div>
+<!-- Step 8 -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/50 flex items-start gap-2.5">
+<span class="font-code-stream text-label-sm font-semibold text-primary bg-surface-container-lowest px-1.5 py-1 rounded shrink-0 border border-outline-variant/40">
+                00:48 - 00:54 (6s)
+              </span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-label-sm font-label-sm font-semibold text-primary">Bước 8: Kêu gọi hành động (CTA)</span>
+<span class="text-[10px] font-label-sm text-primary bg-primary/10 px-1.5 rounded border border-primary/20">Sticker Lưu &amp; Chia sẻ</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded px-2 py-1 text-body-sm text-on-surface font-body-sm focus:ring-0" type="text" value="Lưu video lại và áp dụng ngay sáng mai nhé! Nhấn Theo dõi để nhận thêm mẹo sống khỏe mỗi ngày."/>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. METADATA, CAPTION & SEO HASHTAGS BOX -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-lg p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="edit_note">edit_note</span>
+<span>Caption &amp; SEO Metadata cho Facebook Reels</span>
+</span>
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-outline">
+<span>Giọng AI:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-medium border border-primary/30">
+                MinhQuang (Trầm ấm, truyền cảm - 1.05x)
+              </span>
+</div>
+</div>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant/50 focus:border-primary rounded p-2 text-body-sm font-body-sm text-on-surface focus:ring-0 resize-none" rows="2">⚠️ 3 thói quen tưởng vô hại nhưng đang âm thầm tàn phá cơ thể bạn mỗi sáng. Xem ngay để thay đổi kịp thời nhé cả nhà! 👇</textarea>
+<div class="flex flex-wrap items-center gap-1.5 text-label-sm font-label-sm">
+<span class="text-outline text-[11px]">Tags SEO:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code-stream border border-primary/20">#suckhoe</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code-stream border border-primary/20">#chudung</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code-stream border border-primary/20">#shorts</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code-stream border border-primary/20">#songkhoe</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code-stream border border-primary/20">#meovatcuocsong</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code-stream border border-primary/20">#chiasekienthuc</span>
+<button class="text-outline hover:text-on-surface text-[12px] pl-1">+ Thêm tag</button>
+</div>
+</div>
+<!-- 4. PRIMARY ACTION FOOTER TOOLBAR -->
+<div class="bg-surface-container-low border border-outline-variant/80 rounded-lg p-3 flex flex-wrap items-center justify-between gap-3 shadow-lg">
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant text-label-md font-label-md transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+<span>AI Viết Lại Kịch Bản</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant text-label-md font-label-md transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+<span>Chỉnh sửa Prompt</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden md:flex flex-col text-right">
+<span class="text-label-sm font-label-sm text-secondary font-medium">Ready for Render Cluster A</span>
+<span class="text-[10px] text-outline font-code-stream">Queue Slot: #0843</span>
+</div>
+<!-- Big Prominent Emerald Primary Action Button -->
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-secondary text-on-secondary-container font-headline-sm font-bold text-[14px] hover:brightness-110 active:scale-[0.98] transition-all shadow-md emerald-pulse">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>DUYỆT &amp; ĐỒNG BỘ GOOGLE SHEET (APPROVED)</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FB Video Studio v3 - Bảng Điều Khiển Vận Hành</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#3c0091",
+            "background": "#0f131d",
+            "surface-container-low": "#171b26",
+            "on-primary-fixed": "#001a42",
+            "error": "#ffb4ab",
+            "secondary-fixed": "#6ffbbe",
+            "surface-tint": "#adc6ff",
+            "tertiary-container": "#a078ff",
+            "surface-container-high": "#262a35",
+            "on-background": "#dfe2f1",
+            "secondary-container": "#00a572",
+            "surface-container": "#1c1f2a",
+            "surface-bright": "#353944",
+            "on-primary": "#002e6a",
+            "surface-dim": "#0f131d",
+            "secondary": "#4edea3",
+            "outline": "#8c909f",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-on-surface": "#2c303b",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-lowest": "#0a0e18",
+            "on-tertiary-container": "#340080",
+            "primary": "#adc6ff",
+            "on-secondary-container": "#00311f",
+            "tertiary-fixed": "#e9ddff",
+            "on-primary-container": "#00285d",
+            "inverse-surface": "#dfe2f1",
+            "surface": "#0f131d",
+            "on-tertiary-fixed-variant": "#5516be",
+            "on-primary-fixed-variant": "#004395",
+            "error-container": "#93000a",
+            "tertiary": "#d0bcff",
+            "surface-variant": "#313540",
+            "surface-container-highest": "#313540",
+            "on-tertiary-fixed": "#23005c",
+            "on-surface": "#dfe2f1",
+            "on-secondary": "#003824",
+            "outline-variant": "#424754",
+            "inverse-primary": "#005ac2",
+            "on-error": "#690005",
+            "primary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#4edea3",
+            "tertiary-fixed-dim": "#d0bcff",
+            "primary-container": "#4d8eff",
+            "on-error-container": "#ffdad6",
+            "on-secondary-fixed": "#002113",
+            "on-secondary-fixed-variant": "#005236"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-dock": "0.75rem",
+            "space-md": "0.75rem",
+            "space-xl": "2rem",
+            "gutter-compact": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.25rem",
+            "margin": "1.5rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Be Vietnam Pro"],
+            "label-md": ["JetBrains Mono"],
+            "label-sm": ["JetBrains Mono"],
+            "code-stream": ["JetBrains Mono"],
+            "headline-sm": ["Be Vietnam Pro"],
+            "display-lg": ["Be Vietnam Pro"],
+            "display-md": ["Be Vietnam Pro"],
+            "body-md": ["Be Vietnam Pro"],
+            "title-md": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "code-stream": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-md": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #0a0e18;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #262a35;
+      border-radius: 2px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .emerald-glow {
+      box-shadow: 0 0 20px -3px rgba(0, 165, 114, 0.45);
+    }
+    .amber-card-glow {
+      box-shadow: 0 0 16px -4px rgba(245, 158, 11, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body-md select-none overflow-hidden h-screen w-screen flex">
+<!-- LEFT NAVIGATION SIDEBAR (w-64) -->
+<aside class="w-64 bg-surface-container-low flex flex-col justify-between h-screen border-r border-outline-variant/30 flex-shrink-0 z-30">
+<div class="p-space-md flex flex-col gap-space-md">
+<!-- App Brand Header -->
+<div class="flex items-center gap-3 px-2 py-1.5 rounded-lg border border-outline-variant/20 bg-surface-container-lowest/60">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-primary/30 flex items-center justify-center text-primary relative">
+<span class="material-symbols-outlined text-lg" data-icon="movie_filter">movie_filter</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary absolute top-1 right-1"></span>
+</div>
+<div class="flex flex-col">
+<span class="text-title-md font-title-md font-bold tracking-tight text-on-surface leading-tight">FB Video Studio v3</span>
+<span class="text-label-sm font-label-sm text-primary tracking-wide">Tự Động Hóa Reels FB</span>
+</div>
+</div>
+<!-- Master 1-Click Toggle Button -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-secondary-container/40 flex flex-col gap-1.5">
+<button class="w-full py-2.5 px-3 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary-container font-title-md text-title-md font-bold flex items-center justify-center gap-2 transition-all duration-200 emerald-glow cursor-pointer active:scale-[0.98]" id="masterToggleBtn">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-on-secondary"></span>
+</span>
+<span id="masterToggleText">▶ BẬT TỰ ĐỘNG TOÀN BỘ</span>
+</button>
+<div class="flex items-center justify-between px-1">
+<span class="text-label-sm font-label-sm text-on-surface-variant/80">Chu kỳ tự động:</span>
+<span class="text-label-sm font-label-sm text-secondary font-medium">15 phút/lần</span>
+</div>
+</div>
+<!-- Focused 3-Tab Menu Navigation -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="px-2 pb-1 text-label-sm font-label-sm text-outline uppercase tracking-wider">Trình Quản Lý</div>
+<!-- Tab 1: Active -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-high text-primary border-l-2 border-primary font-medium hover:bg-surface-container transition-colors duration-150" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base" data-icon="space_dashboard">space_dashboard</span>
+<span class="text-body-md font-body-md font-medium text-on-surface">📊 Tổng Quan &amp; Vận Hành</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</a>
+<!-- Tab 2: Pending Approval -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base" data-icon="edit_note">edit_note</span>
+<span class="text-body-md font-body-md">📝 Duyệt &amp; Sửa Kịch Bản</span>
+</div>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30">(2 chờ duyệt)</span>
+</a>
+<!-- Tab 3: Finished 9:16 Video Library -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base" data-icon="video_library">video_library</span>
+<span class="text-body-md font-body-md">🎬 Kho Video 9:16</span>
+</div>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm text-on-surface-variant bg-surface-container-highest border border-outline-variant/30 font-medium">(5)</span>
+</a>
+</div>
+</div>
+<!-- Bottom Section: Settings & Real-world Telemetry -->
+<div class="p-space-md border-t border-outline-variant/20 flex flex-col gap-space-sm bg-surface-container-lowest/40">
+<!-- Settings navigation link -->
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 text-body-sm font-body-sm" href="#">
+<span class="material-symbols-outlined text-base text-outline" data-icon="tune">tune</span>
+<span>⚙ Cài Đặt Hệ Thống</span>
+</a>
+<!-- Real-world Connection Status Pills -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="text-[10px] font-label-sm uppercase tracking-wider text-outline px-1">Trạng Thái Kết Nối</div>
+<!-- Google Sheet -->
+<div class="flex items-center justify-between px-2 py-1 rounded bg-surface-container border border-outline-variant/30 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="table_chart">table_chart</span>
+<span>Google Sheet</span>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Sẵn sàng</span>
+</div>
+</div>
+<!-- Extension Scraping Port -->
+<div class="flex items-center justify-between px-2 py-1 rounded bg-surface-container border border-outline-variant/30 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="extension">extension</span>
+<span>Extension</span>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Port 8765</span>
+</div>
+</div>
+<!-- AI Engine -->
+<div class="flex items-center justify-between px-2 py-1 rounded bg-surface-container border border-outline-variant/30 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="auto_awesome">auto_awesome</span>
+<span>AI Model</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Gemini 3.6 Flash</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT CANVAS -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden bg-surface">
+<!-- Top Action / Header Bar -->
+<header class="h-14 px-space-lg border-b border-outline-variant/30 bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-between flex-shrink-0 z-20">
+<div class="flex items-center gap-3">
+<h1 class="text-title-md font-title-md font-bold text-on-surface tracking-tight">BẢNG ĐIỀU KHIỂN VẬN HÀNH</h1>
+<span class="text-outline-variant">|</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant hidden xl:block">Quy trình 3 bước: Quét bài FB → Con người duyệt kịch bản → Tự động xuất video 9:16</p>
+</div>
+<!-- Quick Indicators Header Status -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="text-on-surface">Chế độ:</span>
+<span class="text-secondary font-semibold">Đang Chạy Tự Động (Auto 24/7)</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="schedule">schedule</span>
+<span>Lần quét tiếp theo: <strong class="text-primary font-mono" id="countdownTimer">08:45</strong></span>
+</div>
+</div>
+</header>
+<!-- Scrollable Workspace Body -->
+<div class="flex-1 overflow-y-auto custom-scroll p-space-lg flex flex-col gap-space-lg">
+<!-- SECTION 1: 3 CORE WORKFLOW KPI CARDS (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- CARD 1: INPUT STAGE -->
+<div class="bg-surface-container-low border border-primary/40 rounded-xl p-space-md flex flex-col justify-between hover:border-primary transition-all duration-200">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-primary font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="download_for_offline">download_for_offline</span>
+              1. BÀI VIẾT THU THẬP
+            </span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/25 font-semibold">+3 mới hôm nay</span>
+</div>
+<div class="my-1">
+<div class="text-display-md font-display-md font-bold text-on-surface">12 <span class="text-headline-sm font-headline-sm text-on-surface-variant font-normal">Bài viết</span></div>
+</div>
+<div class="pt-2 border-t border-outline-variant/20 flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="check_circle">check_circle</span>
+<span>Từ 1 Fanpage theo dõi • Đã trích xuất transcript Whisper</span>
+</div>
+</div>
+<!-- CARD 2: HUMAN REVIEW STAGE (CRITICAL ALERT CALLOUT) -->
+<div class="bg-surface-container-low border-2 border-amber-500/80 rounded-xl p-space-md flex flex-col justify-between amber-card-glow hover:border-amber-400 transition-all duration-200 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="assignment_late">assignment_late</span>
+                2. KỊCH BẢN CHỜ DUYỆT
+              </span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold animate-pulse">Hành động cần làm ⚠️</span>
+</div>
+<div class="my-1 flex items-baseline justify-between">
+<div class="text-display-md font-display-md font-bold text-amber-300">2 <span class="text-headline-sm font-headline-sm text-on-surface-variant font-normal">Kịch bản</span></div>
+<button class="px-3 py-1 rounded bg-amber-500 hover:bg-amber-400 text-surface-container-lowest font-body-sm text-body-sm font-bold flex items-center gap-1 transition-colors cursor-pointer active:scale-95 shadow-sm">
+<span>Duyệt ngay</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant/20 flex items-center gap-1.5 text-body-sm font-body-sm text-amber-200/80">
+<span class="material-symbols-outlined text-sm text-amber-400" data-icon="warning">warning</span>
+<span>Cần kiểm tra Hook &amp; CTA trước khi render tự động</span>
+</div>
+</div>
+<!-- CARD 3: OUTPUT STAGE -->
+<div class="bg-surface-container-low border border-secondary/40 rounded-xl p-space-md flex flex-col justify-between hover:border-secondary transition-all duration-200">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="verified">verified</span>
+              3. VIDEO 9:16 THÀNH PHẨM
+            </span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary/15 text-secondary border border-secondary/30 font-semibold">100% Hoàn tất</span>
+</div>
+<div class="my-1">
+<div class="text-display-md font-display-md font-bold text-on-surface">5 <span class="text-headline-sm font-headline-sm text-on-surface-variant font-normal">Video</span></div>
+</div>
+<div class="pt-2 border-t border-outline-variant/20 flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="cloud_done">cloud_done</span>
+<span>Sẵn sàng đăng tải hoặc xuất bản tự động</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: QUICK ACTION TOOLBAR ROW -->
+<section class="flex flex-wrap items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/25">
+<span class="text-label-sm font-label-sm uppercase tracking-wide text-outline px-2">Thao Tác Nhanh:</span>
+<!-- Button 1: Google Sheet -->
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-body-sm font-body-sm hover:border-primary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="table_view">table_view</span>
+<span>📊 Mở Google Sheet</span>
+</button>
+<!-- Button 2: Video Output Folder -->
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-body-sm font-body-sm hover:border-primary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-base text-primary" data-icon="folder_open">folder_open</span>
+<span>📁 Mở Thư Mục Video</span>
+</button>
+<!-- Button 3: Manual Scrape Trigger -->
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-body-sm font-body-sm hover:border-amber-400/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-base text-amber-400" data-icon="bolt">bolt</span>
+<span>⚡ Quét Kênh Thủ Công (1 lần)</span>
+</button>
+<!-- Button 4: Manual Render Trigger -->
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-body-sm font-body-sm hover:border-secondary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="auto_videocam">auto_videocam</span>
+<span>⚡ Dựng Video Thủ Công (1 lần)</span>
+</button>
+<div class="ml-auto text-label-sm font-label-sm text-outline px-2 hidden sm:block">
+          Pipeline v3.4.2 • Stable
+        </div>
+</section>
+<!-- SECTION 3: MAIN BALANCED WORKSPACE (Two Columns Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg flex-1 min-h-[460px]">
+<!-- LEFT COLUMN: RECENT 9:16 PRODUCED VIDEO QUEUE (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="slow_motion_video">slow_motion_video</span>
+<h2 class="text-title-md font-title-md font-bold text-on-surface">Video Hoàn Thiện Gần Nhất</h2>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Định dạng chuẩn 9:16 Reels</span>
+</div>
+<div class="flex flex-col gap-space-md flex-1">
+<!-- Video Preview Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 flex gap-3.5 hover:border-primary/50 transition-all group">
+<!-- 9:16 Thumbnail container -->
+<div class="w-24 h-40 bg-surface-container-lowest rounded-lg overflow-hidden relative flex-shrink-0 border border-outline-variant/40">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A modern vertical cybernetic mobile video thumbnail with high contrast neon blue and deep slate tones, displaying bold kinetic typography 'ĐẦU TƯ AI 2025' on a dark tech background with abstract computational wave graphs, high production quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApwfeaJJwwgZNvP5gFpcVRa30MAhHbhth1Uuh8LbDIyd13vB-wFZtL1J_C7p3sP5oKD6_x0HuQGgQ34wrOqWCmpuCToN367cr19h8YYjlgRFinRA7rPDyjYyHgBrmjMDxbYMTMghr3h3RmCDMKQwiL-6AvLFJj8EcH0XOG3tvVgSBUQVR1nFuRqBwHmX9howrf-rH5hJmInO-XiYPdESGOBc6DKKxdLirFlzcc196NPDoJGXamIQmk81W0PksjxqFMakMdc9C-b_3q"/>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-[10px] font-label-sm font-medium text-on-surface">0:28s</span>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="w-8 h-8 rounded-full bg-surface-container-lowest/80 text-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-lg" data-icon="play_arrow">play_arrow</span>
+</span>
+</div>
+</div>
+<!-- Video Metadata & Actions -->
+<div class="flex-1 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-sm bg-secondary/15 text-secondary border border-secondary/30 font-medium">Hoàn tất</span>
+<span class="text-label-sm font-label-sm text-outline">#reel_005</span>
+</div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                    Bí quyết đầu tư AI tự động năm 2025 #shorts
+                  </h3>
+</div>
+<div class="flex flex-col gap-2 pt-2 border-t border-outline-variant/20">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm bg-surface-container border border-outline-variant/30 text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="record_voice_over">record_voice_over</span>
+                      BanMai
+                    </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm bg-surface-container border border-outline-variant/30 text-on-surface-variant">HD 1080x1920</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm bg-surface-container border border-outline-variant/30 text-on-surface-variant">60fps</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<button class="flex-1 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-sm font-label-sm font-medium flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="visibility">visibility</span>
+<span>Xem trước</span>
+</button>
+<button class="flex-1 py-1 rounded bg-primary-container hover:bg-primary text-on-primary-container font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span>Tải về</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Video Preview Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 flex gap-3.5 hover:border-primary/50 transition-all group">
+<!-- 9:16 Thumbnail container -->
+<div class="w-24 h-40 bg-surface-container-lowest rounded-lg overflow-hidden relative flex-shrink-0 border border-outline-variant/40">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A vertical cinematic tech preview thumbnail for short video creation, featuring sleek holographic user interfaces, vibrant glowing orange and electric teal graphics, dynamic typography 'TOP 5 CÔNG CỤ', dark studio lighting background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAffWm-fuhCRBPJlT57yU7lsC4RsVeFzTJ6RZ-XpDBZAQhMWw5ub3pP0zhsgen0AP0EeqR0yUzPzk4wCIQD0Le8cWhy9ghvfHGhS9yvj-PRXemIAF4CiIHON0Mrm6z3rD2dgKrhObolKV1iR9YBNGW7g4dOETRpx71Q6lZpsNnU4aijNouZ140rinhJnBx-KSGhjw6k1xb_qKJY_4-t4u5by3c0N5dAYDqZFp2tHgKgxxMh_84w0JREMqGGhtWRaGR9kaiTupexn9fa"/>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-[10px] font-label-sm font-medium text-on-surface">0:34s</span>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="w-8 h-8 rounded-full bg-surface-container-lowest/80 text-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-lg" data-icon="play_arrow">play_arrow</span>
+</span>
+</div>
+</div>
+<!-- Video Metadata & Actions -->
+<div class="flex-1 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-sm bg-secondary/15 text-secondary border border-secondary/30 font-medium">Hoàn tất</span>
+<span class="text-label-sm font-label-sm text-outline">#reel_004</span>
+</div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                    Top 5 công cụ tạo video viral tự động 2025
+                  </h3>
+</div>
+<div class="flex flex-col gap-2 pt-2 border-t border-outline-variant/20">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm bg-surface-container border border-outline-variant/30 text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="record_voice_over">record_voice_over</span>
+                      MinhQuang
+                    </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm bg-surface-container border border-outline-variant/30 text-on-surface-variant">HD 1080x1920</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm bg-surface-container border border-outline-variant/30 text-on-surface-variant">60fps</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<button class="flex-1 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-sm font-label-sm font-medium flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="visibility">visibility</span>
+<span>Xem trước</span>
+</button>
+<button class="flex-1 py-1 rounded bg-primary-container hover:bg-primary text-on-primary-container font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span>Tải về</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: ACTIVITY LOG CONSOLE / TERMINAL (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="terminal">terminal</span>
+<h2 class="text-title-md font-title-md font-bold text-on-surface">Nhật Ký Hệ Thống Thời Gian Thực</h2>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                Tự động cuộn: Bật
+              </span>
+<button class="px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1 transition-colors cursor-pointer active:scale-95" id="copyLogBtn">
+<span class="material-symbols-outlined text-xs" data-icon="content_copy">content_copy</span>
+<span>Sao chép log</span>
+</button>
+</div>
+</div>
+<!-- The Real Console Shell -->
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant/40 rounded-xl overflow-hidden flex flex-col min-h-[380px] font-code-stream text-code-stream shadow-2xl">
+<!-- Terminal Title Bar -->
+<div class="bg-surface-container px-3 py-2 border-b border-outline-variant/30 flex items-center justify-between select-none">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error/80 border border-error"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 border border-amber-500"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary/80 border border-secondary"></span>
+<span class="ml-2 text-label-sm font-label-sm text-outline">fb-engine@worker-01: /runtime/pipeline.log</span>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline">
+<span>UTF-8</span>
+<span>Live Feed</span>
+</div>
+</div>
+<!-- Terminal Stream Body -->
+<div class="p-4 flex-1 overflow-y-auto custom-scroll flex flex-col gap-2 font-mono text-[12px] leading-relaxed" id="logStreamContainer">
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-outline select-none">01</span>
+<span class="text-primary font-medium">[14:20:05]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-primary/10 text-primary border border-primary/20">[SYS]</span>
+<span class="text-on-surface">Khởi động tiến trình thành công (Core v3.4.2 active)</span>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-outline select-none">02</span>
+<span class="text-primary font-medium">[14:21:00]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-sky-500/10 text-sky-400 border border-sky-500/20">[FB]</span>
+<span class="text-on-surface">Đã quét kênh Facebook: Phát hiện 3 video mới có tương tác cao</span>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-outline select-none">03</span>
+<span class="text-primary font-medium">[14:21:45]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-tertiary-container/20 text-tertiary border border-tertiary/30">[AI-GEMINI]</span>
+<span class="text-on-surface">Gửi nội dung tới Gemini 3.6 Flash để phân tích và viết kịch bản...</span>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-outline select-none">04</span>
+<span class="text-primary font-medium">[14:22:10]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-secondary-container/20 text-secondary border border-secondary/30">[SUCCESS]</span>
+<span class="text-secondary font-medium">Kịch bản #KB-008 đã được tạo thành công (Chờ người dùng duyệt)</span>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-outline select-none">05</span>
+<span class="text-primary font-medium">[14:23:05]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-purple-500/15 text-purple-300 border border-purple-500/30">[RENDER]</span>
+<span class="text-on-surface">Bắt đầu dựng video 9:16 1080x1920 60fps qua FFmpeg...</span>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-outline select-none">06</span>
+<span class="text-primary font-medium">[14:23:55]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-secondary-container/20 text-secondary border border-secondary/30">[SUCCESS]</span>
+<span class="text-secondary font-medium">Xuất file thành công: output_reel_005.mp4 (Voice BanMai, subtitle nhảy chữ)</span>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-outline select-none">07</span>
+<span class="text-primary font-medium">[14:24:00]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">[SHEET]</span>
+<span class="text-on-surface">Cập nhật liên kết video vào Google Sheet lúc 14:24</span>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant bg-surface-container/40 p-1 rounded">
+<span class="text-outline select-none">08</span>
+<span class="text-primary font-medium">[14:24:10]</span>
+<span class="px-1 py-0.2 rounded text-[10px] bg-amber-500/15 text-amber-400 border border-amber-500/20">[IDLE]</span>
+<span class="text-amber-300 font-medium">Chờ chu kỳ quét tiếp theo (đếm ngược: <span class="font-bold underline">08:45</span>)...</span>
+</div>
+<!-- Active Prompt Indicator -->
+<div class="flex items-center gap-2 text-primary pt-2">
+<span class="material-symbols-outlined text-sm animate-pulse" data-icon="chevron_right">chevron_right</span>
+<span class="w-2 h-4 bg-primary animate-pulse"></span>
+</div>
+</div>
+<!-- Terminal Status Sub-dock -->
+<div class="bg-surface-container-low px-4 py-1.5 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-outline font-mono">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Daemon Online
+                </span>
+<span>Thread ID: #9842</span>
+</div>
+<div>Auto-Sync Active</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Interactive Logic for Automation Toggle & Realtime Countdown Simulation -->
+<script>
+    // Live countdown simulation
+    let secondsLeft = 525; // 8 minutes 45 seconds
+    const countdownEl = document.getElementById('countdownTimer');
+    
+    setInterval(() => {
+      if (secondsLeft > 0) {
+        secondsLeft--;
+        const mins = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
+        const secs = String(secondsLeft % 60).padStart(2, '0');
+        if (countdownEl) {
+          countdownEl.textContent = `${mins}:${secs}`;
+        }
+      } else {
+        secondsLeft = 900; // Reset 15 mins
+      }
+    }, 1000);
+
+    // Automation Toggle Button state
+    const masterBtn = document.getElementById('masterToggleBtn');
+    const masterText = document.getElementById('masterToggleText');
+    let isRunning = true;
+
+    masterBtn.addEventListener('click', () => {
+      isRunning = !isRunning;
+      if (isRunning) {
+        masterBtn.classList.remove('bg-surface-container-high', 'text-outline');
+        masterBtn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'emerald-glow');
+        masterText.textContent = '▶ BẬT TỰ ĐỘNG TOÀN BỘ';
+      } else {
+        masterBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'emerald-glow');
+        masterBtn.classList.add('bg-surface-container-high', 'text-on-surface');
+        masterText.textContent = '⏸ TẠM DỪNG TỰ ĐỘNG';
+      }
+    });
+
+    // Copy Log Feedback
+    const copyBtn = document.getElementById('copyLogBtn');
+    copyBtn.addEventListener('click', () => {
+      const originalHtml = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<span class="material-symbols-outlined text-xs text-secondary">check</span><span class="text-secondary">Đã chép</span>';
+      setTimeout(() => {
+        copyBtn.innerHTML = originalHtml;
+      }, 1500);
+    });
+  </script>
+</body></html>

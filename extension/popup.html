@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Video Studio v3</title>
+<style>
+*{box-sizing:border-box}body{font:14px/1.5 system-ui;margin:0;width:380px;padding:20px;background:#f4f7fc;color:#14304e}h1{font-size:20px;margin:0 0 8px}p{margin:8px 0;color:#486179}label{display:block;font-weight:600;margin-top:16px}input[type=password]{width:100%;padding:10px;margin:6px 0;border:1px solid #b8c8da;border-radius:8px}button{border:0;border-radius:8px;padding:11px;background:#1664c0;color:white;font-weight:600;cursor:pointer;margin:8px 0;width:100%}button:disabled{opacity:.5}#status{background:white;border:1px solid #d7e2ef;border-radius:10px;padding:12px;margin-top:12px;white-space:pre-wrap}small{color:#597087}a{color:#1664c0}.switch{display:flex;align-items:center;gap:8px}
+</style></head><body>
+<h1>🎬 Video Studio v3</h1>
+<p>Kết nối với Tool 1 đang chạy trên máy. Danh sách kênh và lịch quét được quản lý trên Google Sheet.</p>
+<label for="token">Mã ghép nối Tool 1</label>
+<input id="token" type="password" autocomplete="off" placeholder="Dán local_api_token từ phần cài đặt">
+<label class="switch"><input id="enabled" type="checkbox" checked> Bật nhận kênh để quét</label>
+<button id="save">Lưu và kiểm tra kết nối</button>
+<button id="poll">Kiểm tra công việc ngay</button>
+<div id="status">Chưa kiểm tra kết nối.</div>
+<p><small>Chrome cần đang mở và truy cập được Facebook. Kết quả chưa gửi được sẽ được giữ lại để gửi tiếp.</small></p>
+<script src="popup.js"></script></body></html>

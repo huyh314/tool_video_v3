@@ -1,0 +1,73 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Logs & Databases
+*.log
+app_log.txt
+*.sqlite3
+*.db
+recovery_state.json
+
+# Local private credentials & keys
+.local/
+token.json
+credentials.json
+facebook_token.json
+.env
+.env.*
+!.env.example
+
+# Temporary renders and outputs (keep folders via .gitkeep)
+data/renders/*.mp4
+data/renders/*.jpg
+data/renders/*.png
+data/temp/*
+!data/temp/.gitkeep
+!data/renders/.gitkeep
+data/test_music_render/
+data/test_output.mp4
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
