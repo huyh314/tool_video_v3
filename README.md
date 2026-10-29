@@ -1,8 +1,10 @@
 # FB Auto Video Studio Pro v3 🎬🚀
 
 > **Hệ thống tự động hóa sản xuất video ngắn 9:16 (Facebook Reels, TikTok, YouTube Shorts) từ nội dung Facebook có sẵn, tích hợp trí tuệ nhân tạo Google Gemini AI và công nghệ render đồ họa video tự động.**
+> **Tương thích 100% đa nền tảng: Windows 10/11 & Apple MacBook (macOS Intel, M1, M2, M3, M4).**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![OS](https://img.shields.io/badge/OS-Windows%20%7C%20macOS-success.svg)
 ![GUI](https://img.shields.io/badge/GUI-CustomTkinter-emerald.svg)
 ![AI](https://img.shields.io/badge/AI-Google%20Gemini-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
@@ -27,33 +29,41 @@
    - Kết hợp Chrome Extension quét Reels từ Facebook Fanpage.
    - Google Gemini AI trích xuất nội dung cốt lõi và biên soạn kịch bản 9:16 viral.
 
-5. 🖥️ **Giao Diện Điều Khiển Desktop Đẹp & Trực Quan:**
+5. 🖥️ **Đa Nền Tảng — Chạy Mượt Mà Trên Windows & MacBook:**
+   - Hỗ trợ 1-click launcher cho cả Windows (`.bat`) và macOS (`.command`).
+   - Tích hợp font Unicode tiếng Việt nội bộ, không phụ thuộc font hệ thống.
    - Xây dựng bằng Modern GUI (CustomTkinter), hỗ trợ Dark Theme chuẩn Studio.
-   - Trình duyệt và chỉnh sửa kịch bản thời gian thực kèm xem trước ngay trên App.
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt Cho Người Dùng Mới (Clone & Run)
+## 🚀 Hướng Dẫn Cài Đặt & Sử Dụng (Clone & Run)
 
 ### 1. Tải Mã Nguồn Về Máy (Git Clone)
 
-Mở **Terminal** hoặc **PowerShell** trên máy tính và chạy lệnh:
+Mở **Terminal** (trên Mac) hoặc **PowerShell** (trên Windows) và chạy lệnh:
 
 ```bash
 git clone https://github.com/huyh314/FB_Auto_Video_Studio_v3.git
 cd FB_Auto_Video_Studio_v3
 ```
 
+*(Hoặc dùng link SSH nếu đã thêm key: `git clone git@github.com:huyh314/FB_Auto_Video_Studio_v3.git`)*
+
 ---
 
-### 2. Cài Đặt Môi Trường (Chỉ Chạy Lần Đầu)
+### 2. Cài Đặt Môi Trường (Chỉ Chạy 1 Lần Đầu)
 
-> Yêu cầu: Máy tính đã cài đặt **Python 3.10 trở lên** (tải tại: https://www.python.org/ - **nhớ tích chọn "Add Python to PATH"** khi cài).
+> **Yêu cầu chung:** Máy tính đã cài đặt **Python 3.10 trở lên** (tải tại: https://www.python.org/downloads/).
 
-Nhấp đúp chuột vào tệp:
-👉 **`1_Cai_Dat_Moi_Truong.bat`**
+#### 🪟 Đối Với Máy Tính Windows:
+- Khi cài Python, nhớ tích chọn ô **"Add Python.exe to PATH"**.
+- Nhấp đúp chuột vào tệp: 👉 **`1_Cai_Dat_Moi_Truong.bat`**
+- Chương trình sẽ tự động cài đặt toàn bộ thư viện cần thiết.
 
-Chương trình sẽ tự động tải và cài đặt đầy đủ tất cả thư viện cần thiết (`customtkinter`, `moviepy`, `pillow`, `requests`, v.v.).
+#### 🍎 Đối Với Máy MacBook (macOS Intel & Apple Silicon M1/M2/M3/M4):
+- Nhấp đúp chuột vào tệp: 👉 **`1_Cai_Dat_Moi_Truong_Mac.command`**  
+  *(Hoặc mở Terminal và gõ: `bash 1_Cai_Dat_Moi_Truong_Mac.command`)*
+- Chương trình sẽ tự động khởi tạo môi trường ảo `.venv` và cài đặt trọn gói thư viện.
 
 ---
 
@@ -68,8 +78,15 @@ Chương trình sẽ tự động tải và cài đặt đầy đủ tất cả 
 
 ### 4. Khởi Động & Sử Dụng Studio
 
-Nhấp đúp chuột vào tệp:
-👉 **`2_Chay_Ung_Dung.bat`**
+#### 🪟 Trên Windows:
+- Nhấp đúp chuột vào: 👉 **`2_Chay_Ung_Dung.bat`**
+
+#### 🍎 Trên MacBook (macOS):
+- Nhấp đúp chuột vào: 👉 **`2_Chay_Ung_Dung_Mac.command`**
+
+---
+
+### 5. Thiết Lập & Bắt Đầu Sản Xuất Video
 
 1. Tại tab **⚙ Cài Đặt**:
    - Sao chép **Mã Token kết nối** và dán vào Extension Chrome để liên kết.
@@ -83,25 +100,30 @@ Nhấp đúp chuột vào tệp:
 
 ```text
 FB_Auto_Video_Studio_v3/
-├── 1_Cai_Dat_Moi_Truong.bat      # Script 1-click cài đặt thư viện
-├── 2_Chay_Ung_Dung.bat           # Script 1-click mở ứng dụng Studio
-├── 3_Kiem_Tra_He_Thong.bat       # Script 1-click chẩn đoán & kiểm tra lỗi
-├── README.md                     # Tài liệu hướng dẫn GitHub
-├── README_HUONG_DAN_CHUYEN_GIAO.md
-├── requirements.txt              # Danh sách thư viện Python
-├── configure.py                  # Công cụ quản lý cấu hình & doctor
-├── app.py                        # Ứng dụng Desktop Studio (CustomTkinter GUI)
-├── tool1.py                      # Tiến trình AI quét & trích xuất kịch bản
-├── tool2.py                      # Tiến trình Render video tự động
-├── collector/                    # Bộ thu thập dữ liệu & kết nối Chrome/Gemini
-├── renderer/                     # Bộ render đồ họa, layout quang học & âm thanh
-├── shared/                       # Cấu hình dùng chung, model & database SQLite
+├── 1_Cai_Dat_Moi_Truong.bat          # [Windows] Script 1-click cài đặt thư viện
+├── 2_Chay_Ung_Dung.bat               # [Windows] Script 1-click mở Studio
+├── 3_Kiem_Tra_He_Thong.bat           # [Windows] Script 1-click chẩn đoán lỗi
+├── 4_Day_Len_Github.bat              # [Windows] Script 1-click đẩy lên GitHub
+├── 1_Cai_Dat_Moi_Truong_Mac.command  # [macOS] Script 1-click cài đặt trên MacBook
+├── 2_Chay_Ung_Dung_Mac.command       # [macOS] Script 1-click mở Studio trên MacBook
+├── 3_Kiem_Tra_He_Thong_Mac.command   # [macOS] Script 1-click chẩn đoán trên MacBook
+├── HUONG_DAN_SU_DUNG_FB_AUTO_VIDEO_STUDIO_V3.pdf # Sổ tay hướng dẫn PDF chuẩn A4 (10 trang)
+├── README.md                         # Tài liệu hướng dẫn GitHub
+├── README_HUONG_DAN_CHUYEN_GIAO.md   # Hướng dẫn chi tiết bàn giao
+├── requirements.txt                  # Danh sách thư viện Python
+├── configure.py                      # Công cụ cấu hình & chẩn đoán hệ thống
+├── app.py                            # Ứng dụng Desktop Studio (CustomTkinter GUI)
+├── tool1.py                          # Tiến trình AI quét & trích xuất kịch bản
+├── tool2.py                          # Tiến trình Render video tự động
+├── collector/                        # Bộ thu thập dữ liệu & kết nối Chrome/Gemini
+├── renderer/                         # Bộ render đồ họa, layout quang học & âm thanh
+├── shared/                           # Cấu hình dùng chung, model & database SQLite
 ├── assets/
-│   ├── backgrounds/              # 12 Video nền 9:16 Full HD
-│   ├── music/                    # 10 Bản nhạc nền CC0 mở quyền
-│   └── fonts/                    # Font chữ hỗ trợ tiếng Việt đầy đủ
-├── extension/                    # Mã nguồn Chrome Extension quét Reels
-└── tests/                        # Hệ thống Unit Test tự động (27/27 passed)
+│   ├── backgrounds/                  # 12 Video nền 9:16 Full HD
+│   ├── music/                        # 10 Bản nhạc nền CC0 mở quyền
+│   └── fonts/                        # Font Unicode tiếng Việt (arialbd.ttf)
+├── extension/                        # Mã nguồn Chrome Extension quét Reels
+└── tests/                            # Bộ Unit Test tự động (27/27 passed)
 ```
 
 ---
@@ -111,6 +133,7 @@ FB_Auto_Video_Studio_v3/
 Dự án đi kèm bộ test toàn diện bao phủ Collector, Bridge, Engine Render, Recovery và Models:
 
 ```bash
+# Trên Windows hoặc macOS:
 python -m pytest
 ```
 

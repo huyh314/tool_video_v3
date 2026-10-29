@@ -173,8 +173,22 @@ def resolve_style(script: dict, config: dict = None) -> dict:
 
 
 def get_font(size: int):
-    for name in ("C:/Windows/Fonts/arialbd.ttf", "C:/Windows/Fonts/segoeuib.ttf",
-                 "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "DejaVuSans-Bold.ttf"):
+    bundled = Path(__file__).resolve().parent.parent / "assets" / "fonts" / "arialbd.ttf"
+    candidates = (
+        str(bundled),
+        "C:/Windows/Fonts/arialbd.ttf",
+        "C:/Windows/Fonts/segoeuib.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+        "/Library/Fonts/Arial Bold.ttf",
+        "/Library/Fonts/Arial.ttf",
+        "/System/Library/Fonts/Helvetica.ttc",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "DejaVuSans-Bold.ttf",
+        "Arial.ttf",
+        "arial.ttf"
+    )
+    for name in candidates:
         try:
             return ImageFont.truetype(name, size)
         except OSError:

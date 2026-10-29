@@ -34,6 +34,21 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
 
+def open_path(path):
+    """Open a file or directory with default OS viewer (cross-platform: Win, Mac, Linux)."""
+    p = str(path)
+    try:
+        if sys.platform == "win32":
+            open_path(p)
+        elif sys.platform == "darwin":
+            subprocess.run(["open", p], check=False)
+        else:
+            subprocess.run(["xdg-open", p], check=False)
+    except Exception as e:
+        print(f"[open_path] Failed to open {p}: {e}")
+
+
+
 class ProcessRunner:
     def __init__(self, name, command, log_queue, tag="SYS"):
         self.name = name
@@ -615,7 +630,7 @@ class RawPostDetailDialog(ctk.CTkToplevel):
                 hover_color="#7c3aed",
                 width=160,
                 height=34,
-                command=lambda p=dl_path: os.startfile(str(p))
+                command=lambda p=dl_path: open_path(str(p))
             ).pack(side="left")
 
         ctk.CTkButton(
@@ -1125,11 +1140,19 @@ class VideoStudioApp(ctk.CTk):
         self.geometry("1160x820")
         self.minsize(1040, 720)
 
-        # App Icon
+        # App Icon (cross-platform)
         icon_path = ROOT / "assets" / "app_icon.ico"
-        if icon_path.exists():
+        icon_png = ROOT / "assets" / "app_icon.png"
+        if sys.platform == "win32" and icon_path.exists():
             try:
                 self.iconbitmap(str(icon_path))
+            except Exception:
+                pass
+        elif icon_png.exists():
+            try:
+                from PIL import ImageTk
+                self._app_icon_img = ImageTk.PhotoImage(file=str(icon_png))
+                self.iconphoto(False, self._app_icon_img)
             except Exception:
                 pass
 
@@ -1984,7 +2007,7 @@ class VideoStudioApp(ctk.CTk):
                     width=65,
                     height=28,
                     corner_radius=4,
-                    command=lambda vp=video_path: os.startfile(str(vp))
+                    command=lambda vp=video_path: open_path(str(vp))
                 ).pack(side="left", padx=2)
 
         self._update_selected_count_label()
@@ -2217,7 +2240,7 @@ class VideoStudioApp(ctk.CTk):
                     width=65,
                     height=28,
                     corner_radius=4,
-                    command=lambda vp=dl_path: os.startfile(str(vp))
+                    command=lambda vp=dl_path: open_path(str(vp))
                 ).pack(side="left", padx=2)
 
     def open_raw_post_detail_dialog(self, post_data):
@@ -2340,7 +2363,7 @@ class VideoStudioApp(ctk.CTk):
                 fg_color="#10b981",
                 hover_color="#059669",
                 height=34,
-                command=lambda p=v["path"]: os.startfile(str(p))
+                command=lambda p=v["path"]: open_path(str(p))
             ).pack(side="left", padx=4)
 
             if caption_text:
@@ -2361,7 +2384,7 @@ class VideoStudioApp(ctk.CTk):
                 fg_color="#475569",
                 hover_color="#334155",
                 height=34,
-                command=lambda d=v["dir"]: os.startfile(str(d))
+                command=lambda d=v["dir"]: open_path(str(d))
             ).pack(side="left", padx=4)
 
     def copy_caption_to_clipboard(self, text):
@@ -2447,7 +2470,7 @@ class VideoStudioApp(ctk.CTk):
             font=ctk.CTkFont(size=12, weight="bold"),
             fg_color="#059669",
             hover_color="#10b981",
-            command=lambda: os.startfile(str(ROOT / "assets" / "backgrounds"))
+            command=lambda: open_path(str(ROOT / "assets" / "backgrounds"))
         ).pack(side="left", padx=(0, 8))
 
         # Background Music Management Section
@@ -2534,7 +2557,7 @@ class VideoStudioApp(ctk.CTk):
             font=ctk.CTkFont(size=12, weight="bold"),
             fg_color="#db2777",
             hover_color="#be185d",
-            command=lambda: os.startfile(str(ROOT / "assets" / "music"))
+            command=lambda: open_path(str(ROOT / "assets" / "music"))
         ).pack(side="left", padx=(0, 8))
 
         ctk.CTkButton(
@@ -2832,7 +2855,7 @@ class VideoStudioApp(ctk.CTk):
     def open_renders_folder(self):
         rdir = ROOT / "data" / "renders"
         rdir.mkdir(parents=True, exist_ok=True)
-        os.startfile(str(rdir))
+        open_path(str(rdir))
 
     def trigger_render_once(self):
         if not self.tool2.running:

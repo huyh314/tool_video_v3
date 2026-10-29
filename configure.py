@@ -43,7 +43,15 @@ def doctor(config):
     report['ffmpeg']=ffmpeg_path(config)
     report['background']=probe_media(config['bg_video'],config)
     report['music_exists']=config['music_file'].is_file()
-    report['font_exists']=Path('C:/Windows/Fonts/arialbd.ttf').is_file()
+    bundled_font = Path(__file__).resolve().parent / 'assets' / 'fonts' / 'arialbd.ttf'
+    report['font_exists'] = (
+        bundled_font.is_file() or
+        Path('C:/Windows/Fonts/arialbd.ttf').is_file() or
+        Path('/System/Library/Fonts/Supplemental/Arial Bold.ttf').is_file() or
+        Path('/Library/Fonts/Arial Bold.ttf').is_file() or
+        Path('/System/Library/Fonts/Helvetica.ttc').is_file() or
+        Path('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf').is_file()
+    )
     return report
 
 
