@@ -9,7 +9,7 @@ echo.
 echo Bước 1: Kiểm tra kết nối Git...
 git status
 echo.
-set /p REPO_URL="Nhập đường dẫn GitHub Repository của bạn (VD: https://github.com/huyh314/FB_Auto_Video_Studio_v3.git): "
+set /p REPO_URL="Nhập đường dẫn GitHub Repository của bạn (VD: https://github.com/huyh314/tool_video_v3.git): "
 if "%REPO_URL%"=="" (
     echo [LỖI] Bạn chưa nhập link GitHub!
     pause

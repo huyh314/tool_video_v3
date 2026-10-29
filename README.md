@@ -43,11 +43,11 @@
 Mở **Terminal** (trên Mac) hoặc **PowerShell** (trên Windows) và chạy lệnh:
 
 ```bash
-git clone https://github.com/huyh314/FB_Auto_Video_Studio_v3.git
+git clone https://github.com/huyh314/tool_video_v3.git
 cd FB_Auto_Video_Studio_v3
 ```
 
-*(Hoặc dùng link SSH nếu đã thêm key: `git clone git@github.com:huyh314/FB_Auto_Video_Studio_v3.git`)*
+*(Hoặc dùng link SSH nếu đã thêm key: `git clone git@github.com:huyh314/tool_video_v3.git`)*
 
 ---
 
